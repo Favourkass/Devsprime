@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import Home from '../pages/Home';
+import HomePage from '../pages/HomePage';
 
 test('render welcome to Devsprime', () => {
-  render(<Home />);
+  render(<HomePage />);
   const pElement = screen.getByText(/Welcome to DevsPrime/i);
   expect(pElement).toBeInTheDocument();
 });
