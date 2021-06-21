@@ -4,6 +4,7 @@ export const MainContainer = styled.div`
 display: inline-flex;
 position: relative;
 `;
+
 export const BadgeContainer = styled.div`
   position:relative;
   right:15px;

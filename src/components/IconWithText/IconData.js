@@ -1,4 +1,3 @@
-// images.js
 const images = [
   { id: 1, image: './images/eye.png', text: 'what is wrong with this, following all', icon:'icon'},
   { id: 2, image: './images/hand.png', text: 'what is wrong with this, indeed, it is', icon:'icon'},
