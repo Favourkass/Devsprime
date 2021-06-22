@@ -7,8 +7,8 @@ exports[`matches snapshot 1`] = `
 >
   <img
     alt="cart"
-    className="sc-hKFxyN lQzRk"
-    src="cart.png"
+    className="sc-hKFxyN iQUEMx"
+    src="https://res.cloudinary.com/devsprime/image/upload/v1624373777/Icons%20and%20Logo/cart_naqql0.png"
   />
   <div
     className="sc-gtsrHT hYZwfB"
