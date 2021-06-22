@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="sc-bdnxRM eBFDtt"
+  data-testid="button"
+>
+  <img
+    alt="cart"
+    className="sc-hKFxyN lQzRk"
+    src="cart.png"
+  />
+  <div
+    className="sc-gtsrHT hYZwfB"
+  >
+    <p
+      className="sc-dlnjwi ieBAV"
+    >
+      7
+    </p>
+  </div>
+</div>
+`;
