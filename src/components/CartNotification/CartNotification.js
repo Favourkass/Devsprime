@@ -4,7 +4,6 @@ import {MainContainer, BadgeContainer, Notification,Cart } from "./CartNofificat
 function CartNotification(props) {
   return (
     <MainContainer data-testid="button">
-      {/* <img src={cart} alt="cart" /> */}
       <Cart WIDTH="" src={cart} alt="cart"/>
       <BadgeContainer backgroundColor="linear-gradient(253.58deg, #FFC000 1.55%, #FF8A00 95.8%)">
         <Notification>{props.number}</Notification>
