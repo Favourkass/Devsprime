@@ -22,9 +22,3 @@ it("renders cart correctly", ()=>{
   const {getByTestId} = render(<CartNofication number="7" />)
   expect(getByTestId("button")).toHaveTextContent("7")
 });
-
-it("matches snapshot", ()=>{
-  const renderer = require('react-test-renderer');
-  const tree = renderer.create(<CartNofication number="7"/>).toJSON();
-  expect(tree).toMatchSnapshot();
-});
