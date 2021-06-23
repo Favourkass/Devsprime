@@ -5,7 +5,6 @@ import NavBar from '../components/navbar/NavBarWraper/index'
 function HomePage() {
   return (
     <>
-  
     <Home/>
     
     </>

@@ -7,7 +7,7 @@ const NavBar = () =>{
     return(
         <Nav>
             <NavBarWrapper>
-                <NavElements leftMargin='10%' rightMargin='-12px' />
+                <NavElements leftMargin='' rightMargin='' />
             </NavBarWrapper>
         </Nav>
     )
