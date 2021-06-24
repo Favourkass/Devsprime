@@ -8,7 +8,7 @@ resize: both;
 
 export const BadgeContainer = styled.div`
   position:relative;
-  bottom:10px;
+  bottom:35px;
   width: ${(props)=>props.WIDTH};
   height: ${(props)=>props.HEIGHT};
   background: ${(props)=>props.backgroundColor};
@@ -16,13 +16,15 @@ export const BadgeContainer = styled.div`
 `;
 
 export const Notification = styled.p`
-  position: relative;
   bottom: 25px;
   text-align: center;
   color: white;
   font-size: 30px;
 `;
-
+export const NumContainer=styled.div`
+position: relative;
+bottom: 23px;
+`;
 export const Cart=styled.img`
   position: relative;
   width: ${(props)=>props.WIDTH};
