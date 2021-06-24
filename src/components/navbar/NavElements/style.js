@@ -20,13 +20,13 @@ export const ElementWrapper = styled.ul`
 
 export const NavBtn = styled.button`
     background-image:linear-gradient(120deg, #ff8f00 0%, #ffb900 100%);
-    width:50px;
-    height:50px;
+    width:20px;
+    height:20px;
     display:flex;
     justify-content:center;
     align-items:center;
     color:#fff;
-    border-radius:90%;
+    border-radius:50%;
     border:none;
     position:fixed;
     top:0px;

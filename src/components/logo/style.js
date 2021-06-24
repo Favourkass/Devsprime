@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const DevLogo = styled.div`
     display: flex;
+    margin:2.5px;
 `;
 
 export const LogoText = styled.div`
