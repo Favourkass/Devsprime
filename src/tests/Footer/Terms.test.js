@@ -17,13 +17,6 @@ afterEach(() => {
   container.remove();
   container = null;
 });
-
-  
-
-
-
-
-
 describe('component rendering', () => {
   test("renders Terms Component", () => {
     

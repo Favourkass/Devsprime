@@ -7,22 +7,14 @@ import Policy from "./Policy";
 
 
 const Footer = () => {
-
-
-    return (  
-    
-            
-        <FooterWrapper>
-           
-
+    return (          
+        <FooterWrapper>  
             <About/>
             <Quicklinks/>
             <Contact/>
             <Terms/>
             <Policy/>        
         </FooterWrapper>
-
     );
-}
- 
+} 
 export default Footer;

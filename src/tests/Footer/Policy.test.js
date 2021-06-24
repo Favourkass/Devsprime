@@ -20,20 +20,12 @@ afterEach(() => {
 });
 
   
-
-
 describe('component rendering', () => {
-  test("renders the Privacy policy with the company name and the year", () => {
-    
+  test("renders the Privacy policy with the company name and the year", () => {    
     act(() => {
       render(<Policy company="DECAGON" year="2021" />, container);
-      
     });
     expect(container.textContent).toBe("All Right Reserved | DECAGON 2021 Privacy Policy Site Credit");
   });
 
 });
-
-
-
-  
