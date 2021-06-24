@@ -13,3 +13,10 @@
 
 <!-- React-Redux -->
 #### https://www.freecodecamp.org/news/understanding-redux-the-worlds-easiest-guide-to-beginning-redux-c695f45546f6/
+
+<!-- React Default Testing Libraries -->
+#### https://testing-library.com/docs/react-testing-library/intro/
+
+#### https://www.npmjs.com/package/@testing-library/jest-dom
+
+#### https://testing-library.com/docs/ecosystem-user-event/
