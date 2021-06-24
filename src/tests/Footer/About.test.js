@@ -10,29 +10,17 @@ beforeEach(() => {
   container = document.createElement("div");
   document.body.appendChild(container);
 });
-
 afterEach(() => {
   // cleanup on exiting
   unmountComponentAtNode(container);
   container.remove();
   container = null;
 });
-
 describe('component rendering', () => {
-test("renders the about component with the name of the company and summary about them", () => {
-    
+test("renders the about component with the name of the company and summary about them", () => { 
     act(() => {
       render(<About company="DECAGON" about_company="Welcome to decagon"/>, container);
     });
     expect(container.textContent).toBe("DECAGON Welcome to decagon");
-  
-
   });
 });
-
-
-
-
-  
-
-

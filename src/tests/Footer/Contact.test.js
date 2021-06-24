@@ -19,11 +19,6 @@ afterEach(() => {
   container = null;
 });
 
-
-  
-
-
-
 describe('component rendering', () => {
      
         test("renders contact component with the telephone number,email and address of the company", () => {
@@ -36,7 +31,3 @@ describe('component rendering', () => {
    });
 
 });
-
-
-
-  

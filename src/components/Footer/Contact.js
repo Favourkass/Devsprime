@@ -1,4 +1,3 @@
-
 const Contact = (props) => {
     return ( 
         <div className="contact">
@@ -8,6 +7,5 @@ const Contact = (props) => {
             <p>{props.address}</p>
         </div>
      );
-}
- 
+} 
 export default Contact;
