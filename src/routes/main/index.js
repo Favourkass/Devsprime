@@ -4,15 +4,15 @@ import MyLoader from '../../utils/loader'
 
 import HomePage from '../../pages/HomePage'
 
+
 const App = () => (
-  <Suspense fallback={ 
+  <Suspense fallback={
     <div>
-      <MyLoader /> 
+      <MyLoader />
     </div>
   }>
     <Switch>
       <Route exact path='/' component={HomePage} />
-    
 
     </Switch>
   </Suspense>
