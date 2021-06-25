@@ -7,11 +7,8 @@ import Logo from '../../logo/index'
 const NavBar = () =>{
     return(
         <Nav>
-    
-                <Logo />
-                <NavElements leftMargin='2.5px' rightMargin='' />
-                
-
+            <Logo />
+            <NavElements leftMargin='2.5px' rightMargin='' />
         </Nav>
     )
 }
