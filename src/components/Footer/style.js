@@ -3,6 +3,7 @@ import styled from "styled-components";
 const FooterWrapper=styled.div`
 background-color: #212121;
 color: #FFFFFF;
+<<<<<<< HEAD
 width: 100%;
 font-size: 1vw;
 display:flex;
@@ -67,6 +68,17 @@ padding-bottom:20px;
 }
 p{
     padding-bottom: 20px;
+=======
+max-width:100%;
+width:100vw;
+display:flex;
+justify-content:space-around;
+flex-wrap:wrap;
+padding:px;
+box-sizing:border-box;
+.quicklinks{    
+    border-radius: nullpx;
+>>>>>>> 679eaf0b898006da2d83b8dc46f671a81370c02e
 }
 .links {
     display:flex;
@@ -80,6 +92,7 @@ p{
    padding:5px;
 }
 .terms{
+<<<<<<< HEAD
     
     height:20%;
     float: left;
@@ -102,6 +115,20 @@ p{
 .icons{
     display:flex;
     width: 80%;
+=======
+    display:flex;
+    flex-direction: column;
+    margin-top:90px;   
+}
+.logo{
+display: flex;
+ }
+.about,p{
+    padding-bottom:20px;
+}
+.icons{
+    display:flex;
+>>>>>>> 679eaf0b898006da2d83b8dc46f671a81370c02e
 
 }
 .facebook{
@@ -110,8 +137,13 @@ p{
     justify-content:center;
     align-items:center;
     border-radius:50%;
+<<<<<<< HEAD
     width:20px;
     height:20px;   
+=======
+    width:40px;
+    height:40px;
+>>>>>>> 679eaf0b898006da2d83b8dc46f671a81370c02e
 
 }
 .instagram{
@@ -120,8 +152,13 @@ p{
     justify-content:center;
     align-items:center;
     border-radius:50%;
+<<<<<<< HEAD
     width:20px;
    height:20px;   
+=======
+    width:40px;
+   height:40px;   
+>>>>>>> 679eaf0b898006da2d83b8dc46f671a81370c02e
 }
 .twitter{
     background-color:#1590D8;
@@ -129,8 +166,13 @@ p{
     justify-content:center;
     align-items:center;
     border-radius:50%;
+<<<<<<< HEAD
     width:20px;
    height:20px;   
+=======
+    width:40px;
+    height:40px;
+>>>>>>> 679eaf0b898006da2d83b8dc46f671a81370c02e
 }
 .youtube{
     background-color:#F53E6A;
@@ -138,25 +180,40 @@ p{
     justify-content:center;
     align-items:center;
     border-radius:50%;
+<<<<<<< HEAD
     width:20px;
     height:20px;   
 }
 .policy{
     
+=======
+    width:40px;
+    height:40px;
+}
+.policy{
+    box-sizing:border-box;  
+>>>>>>> 679eaf0b898006da2d83b8dc46f671a81370c02e
     width:100%;
     padding:px;
     display:flex;
     justify-content:space-around;
     background-color: #000000;
+<<<<<<< HEAD
     height: 39px;
     text-align: center;
     
 
+=======
+    padding-left:8px;
+>>>>>>> 679eaf0b898006da2d83b8dc46f671a81370c02e
 }
 .privacy{
     display:flex;
     justify-content:space-between;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 679eaf0b898006da2d83b8dc46f671a81370c02e
 }
 .site{
 margin-left: 10px;
