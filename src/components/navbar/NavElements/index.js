@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {ElementWrapper, NavBtn} from './style'
 import {FaBars} from 'react-icons/fa'
 import NavLink from '../NavLinks/index'
+import Button from '../../button/index'
 
 const NavElements= (props)=>{
     const [active, setActive] = useState(false)
@@ -19,6 +20,8 @@ const NavElements= (props)=>{
          <NavLink route='' color='#FF8A00' size='15'>blog</NavLink>
          <NavLink route='' color='#FF8A00' size='15'>about us</NavLink>
          <NavLink route='' color='#FF8A00' size='15'>contact</NavLink>
+         <Button label="Be A Contributor" primary medium/> 
+         <Button label="Log In" primary medium/> 
     </ElementWrapper>
     </>
     )

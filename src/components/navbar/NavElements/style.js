@@ -10,7 +10,7 @@ export const ElementWrapper = styled.ul`
     margin-right: ${(props) => props.LeftMargin};
     margin-left: ${(props) => props.LeftMargin};
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 960px) {
         display:${props => props.active ? 'flex' : 'none'};
         flex-direction:column;
         
@@ -20,8 +20,8 @@ export const ElementWrapper = styled.ul`
 
 export const NavBtn = styled.button`
     background-image:linear-gradient(120deg, #ff8f00 0%, #ffb900 100%);
-    width:20px;
-    height:20px;
+    width:25px;
+    height:25px;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -35,7 +35,7 @@ export const NavBtn = styled.button`
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
 
- @media screen and (min-width:768px){
+ @media screen and (min-width:960px){
     display:none;
  }   
 `
