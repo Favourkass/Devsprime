@@ -9,7 +9,7 @@ export const Nav = styled.nav`
     background: #FFFFFF;
     box-shadow: 0px 12px 35px rgba(160, 121, 0, 0.2);
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     font-size: 1rem;
     z-index: 10;

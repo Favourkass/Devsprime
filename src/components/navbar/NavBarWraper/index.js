@@ -1,14 +1,14 @@
 import React from 'react'
 import {NavBarWrapper, Nav} from './style'
 import NavElements from '../NavElements/index'
+import Logo from '../../logo/index'
 
 
 const NavBar = () =>{
     return(
         <Nav>
-            <NavBarWrapper>
-                <NavElements leftMargin='' rightMargin='' />
-            </NavBarWrapper>
+            <Logo />
+            <NavElements leftMargin='2.5px' rightMargin='' />
         </Nav>
     )
 }

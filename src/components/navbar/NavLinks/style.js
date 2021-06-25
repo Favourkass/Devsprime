@@ -8,7 +8,8 @@ export const Item = styled.li`
 export const ItemLink= styled(Link)`
     color: ${(props) => props.COLOR};
     fill: linear-gradient(253.58deg, #FFC000 1.55%, #FF8A00 95.8%);
-    display: flex;
+    display:flex;
+  
     align-items: center;
     text-decoration: none;
     padding:0 1rem;

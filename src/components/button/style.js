@@ -8,6 +8,7 @@ const ButtonWrapper = styled.button`
     border-radius: 100px;
     box-shadow: 0px 12px 35px rgba(160, 121, 0, 0.2);
     border: none;
+    margin:2.5px;
     cursor: pointer;
     ${({primary}) => primary && css`
     color: #FFFFFF;
