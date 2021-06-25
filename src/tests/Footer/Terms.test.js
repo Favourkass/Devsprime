@@ -24,7 +24,7 @@ describe('component rendering', () => {
       render(<Terms/>, container);
       
     });
-    expect(container.textContent).toBe("Terms and ConditionsFaq");
+    expect(container.textContent).toBe("Terms and Conditions Faq ");
   });
 
 });

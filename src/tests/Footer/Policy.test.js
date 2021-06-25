@@ -25,7 +25,7 @@ describe('component rendering', () => {
     act(() => {
       render(<Policy company="DECAGON" year="2021" />, container);
     });
-    expect(container.textContent).toBe("All Right Reserved | DECAGON 2021 Privacy Policy Site Credit");
+    expect(container.textContent).toBe("All Right Reserved | DEVSPRIME 2021 Privacy Policy Site Credit");
   });
 
 });

@@ -19,8 +19,8 @@ afterEach(() => {
 describe('component rendering', () => {
 test("renders the about component with the name of the company and summary about them", () => { 
     act(() => {
-      render(<About company="DECAGON" about_company="Welcome to decagon"/>, container);
+      render(<About/>, container);
     });
-    expect(container.textContent).toBe("DECAGON Welcome to decagon");
+    expect(container.textContent).toBe("DEVSPRIMEDevsprime is an online education platform that delivers video courses,programs and undending blog updates.");
   });
 });

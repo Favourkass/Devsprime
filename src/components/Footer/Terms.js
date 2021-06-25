@@ -5,8 +5,8 @@ const Terms = () => {
     return ( 
         <Router>
         <div className="terms">
-            <Link to="#">Terms and Conditions</Link>
-            <Link to="#">Faq</Link>
+            <Link to="#"><div>Terms and Conditions</div> </Link>
+            <Link to="#"><div>Faq</div> </Link>
         </div>
        </Router>      
      );

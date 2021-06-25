@@ -24,10 +24,10 @@ describe('component rendering', () => {
         test("renders contact component with the telephone number,email and address of the company", () => {
     
     act(() => {
-      render(<Contact telephone="0908243243" email="adeakimd@gmail.com" address="asajon way Sangotedo"/>, container);
+      render(<Contact/>, container);
       
     });
-    expect(container.textContent).toBe(" Contact us0908243243adeakimd@gmail.comasajon way Sangotedo");
+    expect(container.textContent).toBe(" Contact us+23481234567devsprimesq007@gmail.com 7, Asajon way,Sangotedo Ajah Lagos");
    });
 
 });
