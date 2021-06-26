@@ -1,11 +1,14 @@
 import Home from '../components/home'
 
+
+
 function HomePage() {
   return (
-    <div>
-      <Home/>
-    </div>
+    <>
+   
+    <Home/>
     
+    </>
   );
 }
 
