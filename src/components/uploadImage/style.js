@@ -10,8 +10,6 @@ export const ImageWrapper = styled.div`
 `
 
 export const Label = styled.label`
- 
-
     display:inline-block;
     width:100px;
     height:100px;
@@ -40,5 +38,5 @@ export const Image = styled.img`
 export const ImageText = styled.p`
     text-align:center;
     font-size:12px;
-   
+    margin-top: 18px;   
 `
