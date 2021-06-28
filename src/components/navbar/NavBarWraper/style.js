@@ -21,8 +21,6 @@ export const Nav = styled.nav`
         flex-direction:column;
     }
 
-
-
     
     @media screen and (max-width: 960px){
         display:flex;
