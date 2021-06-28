@@ -153,7 +153,6 @@ p{
 .policy{
     
     width:100%;
-    padding-left:px;
     display:flex;
     justify-content:space-between;
     background-color: #000000;
@@ -165,11 +164,12 @@ p{
 .privacy{
     display:flex;
     justify-content:space-around;
-    padding-right: 90px;
+    margin-right: 30px;
+  
     
 }
 .right{
-    padding-left:90px;
+      margin-left:100px;
     
 }
 .site{
