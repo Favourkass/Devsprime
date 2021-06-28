@@ -20,16 +20,8 @@ export const Nav = styled.nav`
         display:flex;
         flex-direction:column;
     }
-`;
 
-export const NavBarWrapper = styled.div`
-    display:flex;
-    justify-content:space-between;
-    height: auto;
-    z-index: 1;
-    width: 100%;
-    padding: 0 24px;
-    max-width: 100%;
+
 
     
     @media screen and (max-width: 960px){
