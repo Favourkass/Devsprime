@@ -1,5 +1,5 @@
 import React from 'react'
-import {NavBarWrapper, Nav} from './style'
+import {Nav} from './style'
 import NavElements from '../NavElements/index'
 import Logo from '../../logo/index'
 
