@@ -7,7 +7,7 @@ width: 100%;
 font-size: 1vw;
 display:flex;
 flex-direction: column;
-justify-content: space-between;
+justify-content:space-around;
 
 
 
@@ -32,11 +32,21 @@ footer{
     width:100%;
     border-bottom:1px solid black ;
 }
+.right{
+    margin-left:0px !important;
+
+    
+}
+
+.privacy{
+    margin:0;
+}
 .terms{
-    margin-top:10px !important; 
+    margin-top:10px; 
 }
 .policy{
     font-size: 8px;
+    justify-content: space-between;
 }
 }
 
@@ -56,7 +66,6 @@ footer{
     height:100%;
     float: left;
     padding-top:40px;
-    
     line-height: 26px;
 
 
@@ -144,9 +153,9 @@ p{
 .policy{
     
     width:100%;
-    padding:px;
+    padding-left:px;
     display:flex;
-    justify-content:space-around;
+    justify-content:space-between;
     background-color: #000000;
     height: 39px;
     text-align: center;
@@ -155,7 +164,13 @@ p{
 }
 .privacy{
     display:flex;
-    justify-content:space-between;
+    justify-content:space-around;
+    padding-right: 90px;
+    
+}
+.right{
+    padding-left:90px;
+    
 }
 .site{
 margin-left: 10px;
