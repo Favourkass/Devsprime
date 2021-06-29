@@ -25,6 +25,9 @@ footer{
      justify-content: space-around;
 
 }
+.right{
+     margin-left:15px !important ;
+ }
 .quicklinks,.contact,.about,.terms{
     margin-left:20px;
     padding: 0px;
@@ -32,11 +35,7 @@ footer{
     width:100%;
     border-bottom:1px solid black ;
 }
-.right{
-    margin-left:0px !important;
 
-    
-}
 
 .privacy{
     margin:0;
@@ -108,6 +107,7 @@ p{
     width:265px;
     line-height: 17.05px;
  }
+ 
 .icons{
     display:flex;
     width: 80%;
@@ -164,18 +164,18 @@ p{
 .privacy{
     display:flex;
     justify-content:space-around;
-    margin-right: 30px;
-  
+    margin-right: 50px;
+   
     
 }
 .right{
-      margin-left:100px;
-    
+      margin-left:95px;
 }
+
 .site{
 margin-left: 10px;
 }
-.credit{
+.credits{
     color:#FFC000;
     text-decoration:underline;
 }  
