@@ -4,7 +4,7 @@ const FooterWrapper=styled.div`
 background-color: #212121;
 color: #FFFFFF;
 width: 100%;
-font-size: 1vw;
+font-size:1vw;
 display:flex;
 flex-direction: column;
 justify-content:space-around;
@@ -16,7 +16,7 @@ footer{
     justify-content: space-evenly;
     width:90%;
 }
-@media (max-width:682px){
+@media (max-width:768px){
 
 footer{
     width: 90%;
