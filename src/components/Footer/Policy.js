@@ -1,7 +1,7 @@
 const Policy = (props) => {
     return (  
-        <div className="policy">
-            <div className="right">
+        <div className="policy container">
+            <div>
                 <strong><p>All Rights Reserved | DEVSPRIME 2021 </p></strong>
             </div>
             <div className="privacy"><strong><p>Privacy <span>Policy</span> </p></strong> 

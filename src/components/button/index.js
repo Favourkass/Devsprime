@@ -9,6 +9,7 @@ const Button = props => {
         primary={props.primary}
         onClick={props.handleClick}>
             {props.label}
+
         </ButtonWrapper>
     );
 

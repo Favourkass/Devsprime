@@ -8,7 +8,7 @@ import Policy from "./Policy";
 const Footer = () => {
   return (
     <FooterWrapper>
-      <footer>
+      <footer className='container'>
         <div>
           <About />
         </div>

@@ -1,7 +1,6 @@
 import * as types from '../actions/types'
 
 const initialState = {token: localStorage.getItem('token'), error: null, loading:false, jones: 'Jones'}
-
 const authReducer = (state=initialState, action) => {
 
   const {payload} = action
