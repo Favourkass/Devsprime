@@ -22,8 +22,8 @@ const NavElements= (props)=>{
          <NavLink route='/about-us' color='#FF8A00' size='20px'>about us</NavLink>
          <NavLink route='/contact' color='#FF8A00' size='20px'>contact</NavLink>
          <CartNotification number= "12" />
-         <Button label="Be A Contributor" primary medium/> 
-         <Button label="Log In" primary medium/> 
+         <Button primary small>Become a Contributor</Button> 
+         <Button primary small>Log In</Button> 
     </ElementWrapper>
     </>
     )

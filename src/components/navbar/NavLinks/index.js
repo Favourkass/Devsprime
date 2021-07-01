@@ -9,7 +9,7 @@ const NavLink = (props) =>{
 
         <Item>
 
-             <ItemLink to={props.route} COLOR={props.color} SIZE={props.size}> {props.children}</ItemLink>
+             <ItemLink to={props.route} color={props.color} size={props.size}> {props.children}</ItemLink>
         
          </Item>
 

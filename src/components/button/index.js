@@ -4,12 +4,14 @@ import ButtonWrapper from "./style";
 const Button = props => {
     return (
         <ButtonWrapper 
+        type={props.type}
         medium={props.medium} 
         large={props.large} 
         primary={props.primary}
-        onClick={props.handleClick}>
-            {props.label}
-
+        onClick={props.handleClick}
+        disabled={props.disabled}
+        width={props.width}>
+            {props.children}
         </ButtonWrapper>
     );
 

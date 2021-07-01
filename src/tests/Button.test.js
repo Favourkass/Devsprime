@@ -25,12 +25,12 @@ describe('component rendering', () => {
 
   test("component renders with the label provided", () => {
     act(() => {
-      render(<Button label="Submit" />, container);
+      render(<Button>Submit</Button>, container);
     });
     expect(container.textContent).toBe("Submit");
   
     act(() => {
-      render(<Button label="Sign Up" />, container);
+      render(<Button>Sign Up</Button>, container);
     });
     expect(container.textContent).toBe("Sign Up");
   });

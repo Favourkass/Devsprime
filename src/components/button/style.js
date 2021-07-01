@@ -10,6 +10,7 @@ const ButtonWrapper = styled.button`
     border: none;
     margin:2.5px;
     cursor: pointer;
+    width:${props => props.width ? props.width : 'auto'};
     ${({primary}) => primary && css`
     color: #FFFFFF;
     background:linear-gradient(253.58deg, #FFC000 1.55%, #FF8A00 95.8%);
@@ -21,8 +22,7 @@ const ButtonWrapper = styled.button`
     padding: 20px 115px;
     `}
     @media (max-width:768px) {
-    flex-direction: column;
-    transform: scale(0.8);
+    padding:15px 30px;
   }
 `;
 

@@ -6,7 +6,7 @@ export const Item = styled.li`
 `;
 
 export const ItemLink= styled(Link)`
-    color: ${(props) => props.COLOR};
+    color: ${(props) => props.color};
     fill: linear-gradient(253.58deg, #FFC000 1.55%, #FF8A00 95.8%);
     display:flex;
   
@@ -19,7 +19,7 @@ export const ItemLink= styled(Link)`
     
     Font-family: Roboto;
     Font-style: Regular;
-    Font-size: ${(props) => props.SIZE};
+    Font-size: ${(props) => props.size};
     Line-height: 17.58px;
     font-weight: normal;
 
