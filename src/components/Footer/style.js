@@ -16,7 +16,8 @@ const FooterWrapper = styled.div`
     footer {
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-between;
+      width: 100%;
     }
     .right {
       margin-left: 15px !important ;
@@ -42,7 +43,6 @@ const FooterWrapper = styled.div`
       font-size: 8px;
       display: flex;
       justify-content: space-between;
-      margin: 0;
     }
   }
 
@@ -137,7 +137,6 @@ const FooterWrapper = styled.div`
     height: 20px;
   }
   .policy {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     background-color: #000000;

@@ -2,10 +2,9 @@ import { Suspense } from 'react'
 import { Route, Switch } from "react-router-dom";
 import MyLoader from '../../utils/loader';
 import HomePage from '../../pages/HomePage';
+import PaymentPage from '../../pages/PaymentPage';
 import login from '../../pages/login/login';
-
 import SignUp from '../../pages/signup';
-
 
 
 const App = () => (
@@ -16,6 +15,7 @@ const App = () => (
   }>
     <Switch>
       <Route exact path='/' component={HomePage} />
+      <Route exact path='/payment/:course_id' component={PaymentPage} />
       <Route exact path='/signup' component={SignUp} />
       <Route exact path='/login' component = {login}/>
     </Switch>
