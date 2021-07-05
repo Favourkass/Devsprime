@@ -6,6 +6,7 @@ import PaymentPage from '../../pages/PaymentPage';
 import login from '../../pages/login/login';
 import ForgotPassword from '../../pages/ForgotPassword/index';
 import SignUp from '../../pages/signup';
+import ContactPage from '../../pages/contact/ContactPage'
 
 const App = () => (
   <Suspense fallback={
@@ -18,6 +19,7 @@ const App = () => (
       <Route exact path='/payment/:course_id' component={PaymentPage} />
       <Route exact path='/signup' component={SignUp} />
       <Route exact path='/login' component = {login}/>
+      <Route exact path='/contact' component = {ContactPage}/>
       <Route exact path='/forgot-password' component={ForgotPassword} />
     </Switch>
   </Suspense>
