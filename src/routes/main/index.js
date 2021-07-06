@@ -21,6 +21,7 @@ const App = () => (
   }>
     <Switch>
       <Route exact path='/' component={HomePage} />
+      <Route exact path='/login' component = {login}/>
       <ProtectedRoute exact path='/instructor-dashboard' component={InstructorDashboard} />
       <Route exact path='/payment/:course_id' component={PaymentPage} />
       <Route exact path='/signup' component={SignUp} />
@@ -30,7 +31,6 @@ const App = () => (
       <Route exact path='/verify' component={VerifyOtpPage} />
       <Route exact path='/contact' component = {ContactPage}/>
       <Route exact path='/forgot-password' component={ForgotPassword} />
-
     </Switch>
   </Suspense>
 )

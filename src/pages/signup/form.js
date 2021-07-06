@@ -51,7 +51,7 @@ const FormDiv = ({ signup, signupData }) => {
         >
           {({ values, errors, handleChange, handleBlur, handleSubmit }) => (
             <Forms onSubmit={handleSubmit}>
-              <ToastContainer />
+              <ToastContainer style={{ zIndex: "10" }} position="bottom-right" />
               <MyInput
                 type="text"
                 onChange={handleChange}
