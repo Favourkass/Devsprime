@@ -8,3 +8,5 @@ export const SIGNUP = 'SIGNUP'
 export const SIGNUP_FAILED = 'SIGNUP_FAILED'
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS'
 export const LOGIN_START = 'LOGIN_START'
+
+export const POST_OTP = 'POST_OTP';
