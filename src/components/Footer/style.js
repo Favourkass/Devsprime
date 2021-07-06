@@ -6,7 +6,6 @@ const FooterWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-
   footer {
     display: flex;
     justify-content: space-between;
@@ -32,7 +31,6 @@ const FooterWrapper = styled.div`
       width: 100%;
       border-bottom: 1px solid black;
     }
-
     .privacy {
       margin: 0;
     }
@@ -45,7 +43,6 @@ const FooterWrapper = styled.div`
       justify-content: space-between;
     }
   }
-
   .about {
     float: left;
   }
@@ -82,7 +79,6 @@ const FooterWrapper = styled.div`
     float: left;
     margin-top: 90px;
   }
-
   .logo {
     width: 50%;
     height: 100%;
@@ -95,7 +91,6 @@ const FooterWrapper = styled.div`
     width: 265px;
     line-height: 17.05px;
   }
-
   .icons {
     display: flex;
     width: 80%;
@@ -146,7 +141,6 @@ const FooterWrapper = styled.div`
     display: flex;
     justify-content: space-around;
   }
-
   .site {
     margin-left: 10px;
   }

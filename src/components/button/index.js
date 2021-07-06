@@ -10,6 +10,7 @@ const Button = props => {
         primary={props.primary}
         onClick={props.handleClick}
         disabled={props.disabled}
+        className={props.className}
         width={props.width}>
             {props.children}
         </ButtonWrapper>
