@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import { Route, Switch } from "react-router-dom";
 import MyLoader from '../../utils/loader';
 import HomePage from '../../pages/HomePage';
+import InstructorDashboard from '../../pages/instructor-dashboard';
 import PaymentPage from '../../pages/PaymentPage';
 import login from '../../pages/login/login';
 import ForgotPassword from '../../pages/ForgotPassword';
@@ -18,6 +19,7 @@ const App = () => (
   }>
     <Switch>
       <Route exact path='/' component={HomePage} />
+      <Route exact path='/instructor-dashboard' component={InstructorDashboard} />
       <Route exact path='/payment/:course_id' component={PaymentPage} />
       <Route exact path='/signup' component={SignUp} />
       <Route exact path='/login' component={login} />
