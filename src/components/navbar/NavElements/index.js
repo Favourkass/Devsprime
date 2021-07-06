@@ -4,6 +4,7 @@ import {FaBars} from 'react-icons/fa'
 import NavLink from '../NavLinks/index'
 import Button from '../../button/index'
 import CartNotification from '../../CartNotification/CartNotification'
+import { Link } from 'react-router-dom';
 
 const NavElements= (props)=>{
     const [active, setActive] = useState(false)
@@ -22,8 +23,12 @@ const NavElements= (props)=>{
          <NavLink route='/about-us' color='#FF8A00' size='20px'>about us</NavLink>
          <NavLink route='/contact' color='#FF8A00' size='20px'>contact</NavLink>
          <CartNotification number= "12" />
+         <Link to={`instructor-signup`}>
          <Button primary small>Become a Contributor</Button> 
+         </Link>
+         <Link to={`/login`}>
          <Button primary small>Log In</Button> 
+         </Link>
     </ElementWrapper>
     </>
     )
