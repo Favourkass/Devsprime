@@ -1,0 +1,4 @@
+export const ActionTypes = {
+  SHOW_BLOGS: "SHOW_BLOGS",
+  REMOVE_SELECTED_BLOG: "REMOVE_SELECTED_BLOG"
+};

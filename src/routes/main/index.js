@@ -11,6 +11,7 @@ import ForgotPassword from '../../pages/ForgotPassword';
 import CoursePage from '../../pages/CoursePage';
 
 import SignUp from '../../pages/signup';
+import BlogList from '../../pages/blogs/BlogList'
 import SignUpInstructor from '../../pages/signupInstructor';
 import VerifyOtpPage from '../../pages/VerifyOtpPage';
 import ReviewOrder from '../../pages/review/review';
@@ -19,6 +20,7 @@ import Cart from '../../pages/Cart/index';
 import AboutPage from '../../pages/about/about';
 
 import CourseOverview from '../../pages/CourseOverview'
+
 
 
 const App = () => (
@@ -34,6 +36,7 @@ const App = () => (
       <Route exact path='/dashboard/instructor' component={InstructorDashboard} />
       <Route exact path='/payment/:course_id' component={PaymentPage} />
       <Route exact path='/signup' component={SignUp} />
+      <Route exact path='/blogs' component={BlogList} />
       <Route exact path='/courses/:course_id' component={CourseOverview} />
       <Route exact path='/signup/instructor' component={SignUpInstructor} />
       <Route exact path='/dashboard' component={DashboardCourse} />
