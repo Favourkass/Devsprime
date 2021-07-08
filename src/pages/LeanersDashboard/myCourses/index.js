@@ -28,7 +28,7 @@ const CourseTypeList = ({ handleClick }) => {
   ));
 };
 
-const Course = ({ courseData, fetchCourses }) => {
+const Course = ({ courseData, fetchCourses, history }) => { 
   const [type, setType] = useState("Free");
   useEffect(fetchCourses, [fetchCourses]);
   const handleClick = (e) => {
@@ -51,7 +51,7 @@ const Course = ({ courseData, fetchCourses }) => {
         </div>
 
         <Wrapper>
-          <Courses courseData={courseData} type={type}></Courses>
+          <Courses courseData={courseData.courses} path={history.location.pathname} type={type}></Courses>
           <div className="button">
             <Link to="/courses">
             <Button className="discover-btn" primary medium children="Discover Courses" />

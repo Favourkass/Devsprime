@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 
 export const CourseStyle=styled.div`
-}
 
-`
+
+` 
 export const PageStyle=styled.div`
 background-color: #FFF7DF;
 display: flex; 
