@@ -23,7 +23,7 @@ const NavElements= (props)=>{
          <NavLink route='/about-us' color='#FF8A00' size='20px'>about us</NavLink>
          <NavLink route='/contact' color='#FF8A00' size='20px'>contact</NavLink>
          <CartNotification number= "12" />
-         <Link to={`instructor-signup`}>
+         <Link to={`signup/instructor`}>
          <Button primary small>Become a Contributor</Button> 
          </Link>
          <Link to={`/login`}>

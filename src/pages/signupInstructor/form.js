@@ -87,7 +87,7 @@ const FormDiv = ({ signup, signupData }) => {
               </SmallText>
               <Button type="submit" primary large width="100%">
                 {" "}
-                Sign Up
+                Become An Instructor
                 <ClipLoader loading={loading} size={20} />
               </Button>
             </Forms>
