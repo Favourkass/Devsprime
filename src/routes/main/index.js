@@ -13,11 +13,13 @@ import CoursePage from '../../pages/CoursePage';
 import SignUp from '../../pages/signup';
 import SignUpInstructor from '../../pages/signupInstructor';
 import VerifyOtpPage from '../../pages/VerifyOtpPage';
+import ReviewOrder from '../../pages/review/review';
 import ContactPage from '../../pages/contact/ContactPage'
 import Cart from '../../pages/Cart/index';
 import AboutPage from '../../pages/about/about';
 
 import CourseOverview from '../../pages/CourseOverview'
+
 
 const App = () => (
   <Suspense fallback={
@@ -26,6 +28,7 @@ const App = () => (
     </div>
   }>
     <Switch>
+      <Route exact path='/review/:cartId' component={ReviewOrder}/>
       <Route exact path='/' component={LandingPage} />
       <Route exact path='/login' component = {login}/>
       <Route exact path='/dashboard/instructor' component={InstructorDashboard} />

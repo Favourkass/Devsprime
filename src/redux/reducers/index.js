@@ -7,6 +7,8 @@ import SignupReducer from './auth/signup.reducer'
 import SignUpInstructorReducer from './auth/signupInstructor.reducer'
 import courseReducer from "./course.reducer";
 import verifyOtpReducer from './verifyotp.reducer'
+import getCartReducer from "./orderReview.reducer";
+
 import AllCoursesReducer from "./all_courses.reducer";
 import cartlistReducer from "./cart.reducer"
 
@@ -16,8 +18,9 @@ login:LoginReducer,
 cartList:cartlistReducer,
 signup:SignupReducer,
 courses: courseReducer,
+getCartById:getCartReducer,
 verifyOtp: verifyOtpReducer,
-paymentReducer,
+paymentReducer, 
 getCourse: getCourseRudcer,
 all_courses:AllCoursesReducer
 })
