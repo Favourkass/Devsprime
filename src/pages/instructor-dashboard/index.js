@@ -4,8 +4,7 @@ import Courses from "../../components/InstructorDashboard/Courses";
 import { CardContainer } from "../../components/InstructorDashboard/Courses/style";
 import { courses, instructor } from "./data";
 import Footer from "../../components/Footer";
-import Button from "../../components/button";
-import ButtonContainer from "./style";
+import FormModal from "./modal/index";
 
 
 const InstructorDashboard = () => {
@@ -30,14 +29,7 @@ const InstructorDashboard = () => {
           />
         ))}
       </CardContainer>
-      <ButtonContainer>
-      <Button
-      primary
-      large
-      >
-        Upload a New Course
-      </Button>
-      </ButtonContainer>
+      <FormModal />
       <Footer/>
     </>
   );

@@ -25,7 +25,6 @@ const Card = styled.section`
 
 const Tier = styled.p`
   position: absolute;
-  z-index: 5;
   top: 0;
   right: 0;
   background: linear-gradient(253.58deg, #ffc000 1.55%, #ff8a00 95.8%);
