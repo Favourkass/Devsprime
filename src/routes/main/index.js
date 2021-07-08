@@ -14,6 +14,7 @@ import SignUp from '../../pages/signup';
 import SignUpInstructor from '../../pages/signupInstructor';
 import VerifyOtpPage from '../../pages/VerifyOtpPage';
 import ContactPage from '../../pages/contact/ContactPage'
+import AboutPage from '../../pages/about/about';
 
 import CourseOverview from '../../pages/CourseOverview'
 
@@ -36,6 +37,7 @@ const App = () => (
       <Route exact path='/contact' component = {ContactPage}/>
       <Route exact path='/forgot-password' component={ForgotPassword} />
       <Route exact path='/courses' component={CoursePage} />
+      <Route exact path='/about' component = {AboutPage}/>
     </Switch>
   </Suspense>
 )
