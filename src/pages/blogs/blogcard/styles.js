@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
+
+export const BlogCardContainer = styled.div`
+  margin: 5rem 0;
+`
+
 export const BlogCardStyle=styled.div`
-margin-bottom: 15px;
-section,
-aside,
-article,
-div,
-img{
-  box-sizing: border-box;
-
-
+color: white;
+margin-bottom: 5rem;
+.blog-btn{
+  margin: 2rem;
 }
 section img{
   width: 100%;
@@ -18,7 +18,7 @@ section img{
 }
 section{
   margin: auto;
-  width: 50%;
+  max-width: 32rem;
   border-radius: 20px;
   background: url(${'https://res.cloudinary.com/devsprime/image/upload/v1624489646/Blogs/blog-bg_wqfkpi.png'}), bottom , linear-gradient(333deg,#FF8A00 1.55%,#FFC000 95.8%); 
 }

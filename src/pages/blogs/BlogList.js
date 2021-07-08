@@ -1,4 +1,3 @@
-// Blog List
 import NavBar from "../../components/navbar/NavBarWraper/index";
 import Footer from "../../components/Footer/index";
 import Hero from "./hero/index";

@@ -1,19 +1,18 @@
 .paginationBttns {
-  width: 65%;
-  height: 40px;
   list-style: none;
   display: flex;
   justify-content: center;
-  margin: auto;
+  background-color: white;
 }
 
 .paginationBttns a {
-  padding: 10px;
+  padding: .5rem 2rem;
   margin: 8px;
-  border-radius: 5px;
+  border-radius: 18rem;
   border: 1px solid #26262e;
   color: #070808;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .paginationBttns a:hover {
@@ -23,7 +22,7 @@
 }
 
 .paginationActive a {
-  color: white;
+  color: rgb(241, 121, 121);
   background: linear-gradient(253.58deg, #FFC000 1.55%, #FF8A00 95.8%);
 
 }
@@ -31,4 +30,9 @@
 .paginationDisabled a {
   color: rgb(248, 247, 245);
   background-color: grey;
+  cursor: unset;
+}
+
+.paginationDisabled a:hover{
+  background: grey;
 }
