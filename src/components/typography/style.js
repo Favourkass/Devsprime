@@ -18,6 +18,7 @@ const ParagraphStyle = styled.p`
     font-size: ${(props) => props.size}px;
     color: ${(props) => props.color};
     font-weight: ${(props) => props.weight};
+    line-height: ${(props) => props.lineHeight};
 `;
 
 export { HeaderComp, SubHeaderComp, ParagraphStyle }

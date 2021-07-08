@@ -14,6 +14,7 @@ function Search(props) {
         rightGradientColor={props.rightGradientColor}
         type={props.type}
         placeholder={props.placeholder}
+        onChange={props.onChange}
       />
       <Hr />
     </Section>
