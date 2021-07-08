@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast } from "react-toastify";
-import axios from "../../../request";
+import { ToastContainer } from "react-toastify";
 import Modal from "react-modal";
 import { Formik } from "formik";
 import validationSchema from "./validation";
@@ -22,7 +21,7 @@ Modal.setAppElement(document.getElementById("root"));
 function FormModal() {
   let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [submit, setSubmit] = useState("Submit");
+  const [submit] = useState("Submit");
   const token = localStorage.getItem("token");
 
   function openModal() {

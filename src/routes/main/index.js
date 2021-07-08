@@ -15,6 +15,7 @@ import SignUpInstructor from '../../pages/signupInstructor';
 import VerifyOtpPage from '../../pages/VerifyOtpPage';
 import ContactPage from '../../pages/contact/ContactPage'
 
+import CourseOverview from '../../pages/CourseOverview'
 
 const App = () => (
   <Suspense fallback={
@@ -28,6 +29,7 @@ const App = () => (
       <Route exact path='/dashboard/instructor' component={InstructorDashboard} />
       <Route exact path='/payment/:course_id' component={PaymentPage} />
       <Route exact path='/signup' component={SignUp} />
+      <Route exact path='/courses/:course_id' component={CourseOverview} />
       <Route exact path='/signup/instructor' component={SignUpInstructor} />
       <Route exact path='/dashboard' component={DashboardCourse} />
       <Route exact path='/verify' component={VerifyOtpPage} />

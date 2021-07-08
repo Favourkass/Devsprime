@@ -9,6 +9,7 @@ const ButtonWrapper = styled.button`
     box-shadow: 0px 12px 35px rgba(160, 121, 0, 0.2);
     border: none;
     margin:2.5px;
+    font-weight:bold;
     cursor: pointer;
     width:${props => props.width ? props.width : 'auto'};
     ${({primary}) => primary && css`

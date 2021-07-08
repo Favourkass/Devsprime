@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Paragraph } from "../../../components/typography";
 import { Link } from "react-router-dom";
 
-const Courses = ({ courseData, type,path }) => {
+const Courses = ({ courseData, type, path }) => {
   const [coursetype, setCoursetype] = useState(type);
   const [courser_data, setCourser_data] = useState();
 
@@ -19,8 +19,8 @@ const Courses = ({ courseData, type,path }) => {
         courser_data.map((item, index) => {
           if (item.course_type.toLowerCase() === coursetype.toLowerCase()) {
             return (
-              <Link key={index} to={`${path}/course/${item.id}`}>
-                <CourseStyle >
+              <Link key={index} to={`courses/${item.id}`}>
+                <CourseStyle>
                   <CourseCard
                     image={item.cover_img}
                     tier={item.course_type}
