@@ -6,7 +6,6 @@ import {
     ImageDiv,
     TextDiv,
     ImageContent,
-    Img
 } from './style'
 import Button from '../../../components/button'
 

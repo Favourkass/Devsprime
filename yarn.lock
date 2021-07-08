@@ -4348,6 +4348,11 @@ elliptic@^6.5.3:
     minimalistic-assert "^1.0.1"
     minimalistic-crypto-utils "^1.0.1"
 
+email-js@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/email-js/-/email-js-2.0.2.tgz#c6682e73fae9df700558d413d9e3b7a9fdb5bab0"
+  integrity sha512-ElfOy+BMZbQuivo8Qp+A2Gz6N06ZUHEk+q67O0zgTRU5d+n2rvbfX0w2jyo7B/F+zPJAXq/J1SHaG9ghbhWAPQ==
+
 emailjs-com@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/emailjs-com/-/emailjs-com-3.1.0.tgz#442927269bf04f366ca30d67b4272f55961979da"

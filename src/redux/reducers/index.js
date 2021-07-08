@@ -8,10 +8,12 @@ import SignUpInstructorReducer from './auth/signupInstructor.reducer'
 import courseReducer from "./course.reducer";
 import verifyOtpReducer from './verifyotp.reducer'
 import AllCoursesReducer from "./all_courses.reducer";
+import cartlistReducer from "./cart.reducer"
 
 const rootReducer = combineReducers({
 signupInstructor: SignUpInstructorReducer,
 login:LoginReducer,
+cartList:cartlistReducer,
 signup:SignupReducer,
 courses: courseReducer,
 verifyOtp: verifyOtpReducer,

@@ -11,6 +11,7 @@ const Inputs = styled.input`
     font-size: 14px;
     line-height: 17px;
 
+    
 `
 export default Inputs;
 
