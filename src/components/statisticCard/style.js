@@ -1,8 +1,10 @@
 import Styled from "styled-components";
 
 
-export const statisticWrapper = Styled.div`
-margin: 0 auto;
+export const StatisticWrapper = Styled.div`
+  width: 231px;
+  padding-left: 30px;
+  padding-right: 10px;
 `
 
 const StatisticImg = Styled.img`
@@ -28,6 +30,7 @@ const StaticLabel = Styled.p`
 margin: 5px;
 width: 100%;
 font-size: 14px;
+word-wrap: break-word;
 text-align: center;
 color: #FFFFFF;
 `

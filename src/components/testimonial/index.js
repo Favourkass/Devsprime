@@ -1,5 +1,5 @@
 import React from "react";
-import {Wrapper, Card, CardBody, ImageTop, CardImageTop, Quote, SpanDiv, SpanH5, CardP, SpanH6} from './style'
+import { Wrapper, Card, CardBody, ImageTop, CardImageTop, Quote, SpanDiv, SpanH5, CardP, SpanH6 } from './style'
 
 
 function Testimonial(props) {

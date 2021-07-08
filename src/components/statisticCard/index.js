@@ -1,16 +1,16 @@
 import React from 'react';
-import { statisticWrapper, StatisticContainer } from './style';
+import { StatisticWrapper, StatisticContainer } from './style';
 
 function StatisticCard({data}) {
     return (
-        <statisticWrapper>
+        <StatisticWrapper>
             <StatisticContainer
                 key={data.id}
                 src={data.img}
                 count={data.count}
                 label={data.label}
             />
-        </statisticWrapper>
+        </StatisticWrapper>
     )
 }
 

@@ -8,9 +8,9 @@ margin-top: 20px;
 const Card = styled.div`
 background: #ffffff;
 border: 1px solid #efefef;
-width: 373px;
+width: 275px;
 height: fit-content;
-margin: 0 30px;
+margin: 0 10px;
 padding: 30px 10px;
 box-shadow: 0px 12px 35px rgba(160, 121, 0, 0.2);
 border-radius: 5px;
@@ -19,7 +19,8 @@ border-radius: 5px;
 const CardBody = styled.div`
 display: flex;
 flex-flow: column;
-padding-left: 39px;
+padding-left: 16px;
+padding-right: 16px;
 `;
 
 const ImageTop = styled.div`
@@ -59,10 +60,9 @@ line-height: 105.47%;
 `;
 
 const CardP = styled.p`
-width: 300px;
 font-family: Proxima Nova;
 font-size: 16px;
-text-align: start;
+text-align: justify;
 color: #5c5c5c;
 line-height: 175.78%;
 `;
