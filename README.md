@@ -3,7 +3,7 @@
 
 Devsprime is the smartest online learning platform that bridges the gap between learners who want quality software development educational content and Senior Engineers who provides them
 
-## Visit ![Devsprime.com](https://devsprime.netlify.app/)
+## Visit [Devsprime.com](https://devsprime.netlify.app/)
 
 ## Available Scripts
 
