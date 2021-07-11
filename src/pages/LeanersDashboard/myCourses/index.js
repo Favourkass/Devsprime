@@ -1,7 +1,7 @@
 import Button from "../../../components/button";
 import NavBar from "../../../components/navbar/NavBarWraper";
 import Footer from "../../../components/Footer";
-import { Header } from "../../../components/typography";
+import { Header, SubHeader } from "../../../components/typography";
 import { black } from "../../../components/colour/colour";
 import { PageStyle, Wrapper, ParagraphWrapper } from "./style";
 import { Link } from "react-router-dom";
@@ -28,7 +28,7 @@ const CourseTypeList = ({ handleClick }) => {
   ));
 };
 
-const Course = ({ courseData, fetchCourses, history }) => { 
+const Course = ({ courseData, fetchCourses, history }) => {
   const [type, setType] = useState("Free");
   useEffect(fetchCourses, [fetchCourses]);
   const handleClick = (e) => {
@@ -38,7 +38,7 @@ const Course = ({ courseData, fetchCourses, history }) => {
   return (
     <>
       <NavBar />
-      <PageStyle className='container'>
+      <PageStyle className="container">
         <div className="menu-container">
           <div className="header-cont d-flex d-flex-center">
             <Header size={20} color={black}>
@@ -49,15 +49,27 @@ const Course = ({ courseData, fetchCourses, history }) => {
             <CourseTypeList handleClick={handleClick} />
           </div>
         </div>
-
-        <Wrapper>
-          <Courses courseData={courseData.courses} path={history.location.pathname} type={type}></Courses>
-          <div className="button">
-            <Link to="/courses">
-            <Button className="discover-btn" primary medium children="Discover Courses" />
-            </Link>
-          </div>
-        </Wrapper>
+        {courseData.courses ? (
+          <Wrapper>
+            <Courses
+              courseData={courseData.courses}
+              path={history.location.pathname}
+              type={type}
+            ></Courses>
+            <div className="button">
+              <Link to="/courses">
+                <Button
+                  className="discover-btn"
+                  primary
+                  medium
+                  children="Discover Courses"
+                />
+              </Link>
+            </div>
+          </Wrapper>
+        ) : (
+          <SubHeader>You currently have no course</SubHeader>
+        )}
       </PageStyle>
       <Footer />
     </>
