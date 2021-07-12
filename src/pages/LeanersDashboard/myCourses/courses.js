@@ -17,8 +17,8 @@ const Courses = ({ courseData, type }) => {
         courseData.courses.map((item) => {
           if (item.course_type.toLowerCase() === coursetype.toLowerCase()) {
             return (
-              <Link to={`courses/${item.id}`}>
-                <CourseStyle key={item.id}>
+              <Link key={item.id} to={`courses/${item.id}`}>
+                <CourseStyle>
                   <CourseCard
                     image={item.cover_img}
                     tier={item.course_type}
@@ -32,7 +32,7 @@ const Courses = ({ courseData, type }) => {
           }
         })
       ) : (
-        <Paragraph>No Courses</Paragraph>
+        <Paragraph>No Course</Paragraph>
       )}
     </>
   );

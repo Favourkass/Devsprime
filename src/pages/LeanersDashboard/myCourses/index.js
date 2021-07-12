@@ -9,14 +9,17 @@ import Courses from "./courses";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { fetchCourses } from "../../../redux/actions/courses.actions";
+import { fetchUsers } from "../../../redux/actions/userprofile.action";
+
 
 const courseTypeData = ["Free", "Premium"];
-const CourseTypeList = ({ handleClick }) => {
+
+const CourseTypeList = ({ handleOnClick }) => {
   return courseTypeData.map((courseType, index) => (
     <ParagraphWrapper key={index}>
       <Header size={15} color={black}>
         <div
-          onClick={handleClick}
+          onClick={handleOnClick}
           key={index}
           data-value={courseType}
           className="course-type"
@@ -28,15 +31,25 @@ const CourseTypeList = ({ handleClick }) => {
   ));
 };
 
-const Course = ({ courseData, fetchCourses, history }) => {
+const Course = ({ courseData, fetchCourses, userData, history }) => {
   const [type, setType] = useState("Free");
-  const token = localStorage.getItem('token')
-  useEffect(() => fetchCourses(token),  [token, fetchCourses])
 
-  const handleClick = (e) => {
+  const handleOnClick = (e) => {
     setType(e.target.getAttribute("data-value"));
   };
 
+  const pageController = () => {
+    if (userData && !userData.is_learner) {
+      return (window.location = "/login");
+    }
+  };
+
+  pageController();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    fetchCourses(token);
+  }, [fetchCourses]);
   return (
     <>
       <NavBar />
@@ -48,27 +61,27 @@ const Course = ({ courseData, fetchCourses, history }) => {
             </Header>
           </div>
           <div className="course-type-cont">
-            <CourseTypeList handleClick={handleClick} />
+            <CourseTypeList handleOnClick={handleOnClick} />
           </div>
         </div>
         {courseData && courseData.courses ? (
           <Wrapper>
-            <Courses
-              path={history.location.pathname}
-              type={type}
-            ></Courses>
+            <Courses path={history.location.pathname} type={type}></Courses>
             <div className="button">
               <Link to="/courses">
                 <Button
                   className="discover-btn"
                   primary
                   medium
-                  children="Discover Courses"
-                />
+                >Discover Courses</Button>
               </Link>
             </div>
           </Wrapper>
-        ): (<SubHeader>No content</SubHeader>)}
+        ) : (
+          <SubHeader size={25} className="d-flex d-flex-center">
+            You currently have no course
+          </SubHeader>
+        )}
       </PageStyle>
       <Footer />
     </>
@@ -77,10 +90,7 @@ const Course = ({ courseData, fetchCourses, history }) => {
 
 const mapStateToProps = (store) => ({
   courseData: store.courses.courses,
+  userData: store.user.users.data,
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   fetchCourses: () => dispatch(fetchCourses())
-// })
-
-export default connect(mapStateToProps, {fetchCourses})(Course);
+export default connect(mapStateToProps, { fetchCourses, fetchUsers })(Course);
