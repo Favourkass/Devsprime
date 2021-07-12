@@ -3,24 +3,22 @@ import CourseCard from "../../../components/ProductCard";
 import React, { useEffect, useState } from "react";
 import { Paragraph } from "../../../components/typography";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-const Courses = ({ courseData, type, path }) => {
+const Courses = ({ courseData, type }) => {
   const [coursetype, setCoursetype] = useState(type);
-  const [courser_data, setCourser_data] = useState();
-
   useEffect(() => {
-    setCourser_data(courseData);
     setCoursetype(type);
   }, [courseData, type]);
 
   return (
     <>
-      {courser_data && courser_data && courser_data.length > 0 ? (
-        courser_data.map((item, index) => {
+      {courseData && courseData.courses.length > 0 ? (
+        courseData.courses.map((item) => {
           if (item.course_type.toLowerCase() === coursetype.toLowerCase()) {
             return (
-              <Link key={index} to={`courses/${item.id}`}>
-                <CourseStyle>
+              <Link to={`courses/${item.id}`}>
+                <CourseStyle key={item.id}>
                   <CourseCard
                     image={item.cover_img}
                     tier={item.course_type}
@@ -40,4 +38,8 @@ const Courses = ({ courseData, type, path }) => {
   );
 };
 
-export default Courses;
+const mapStateToProps = (store) => ({
+  courseData: store.courses.courses,
+});
+
+export default connect(mapStateToProps, null)(Courses);

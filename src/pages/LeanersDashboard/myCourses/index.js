@@ -6,14 +6,14 @@ import { black } from "../../../components/colour/colour";
 import { PageStyle, Wrapper, ParagraphWrapper } from "./style";
 import { Link } from "react-router-dom";
 import Courses from "./courses";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { fetchCourses } from "../../../redux/actions/courses.actions";
 
 const courseTypeData = ["Free", "Premium"];
 const CourseTypeList = ({ handleClick }) => {
   return courseTypeData.map((courseType, index) => (
-    <ParagraphWrapper>
+    <ParagraphWrapper key={index}>
       <Header size={15} color={black}>
         <div
           onClick={handleClick}
@@ -30,7 +30,9 @@ const CourseTypeList = ({ handleClick }) => {
 
 const Course = ({ courseData, fetchCourses, history }) => {
   const [type, setType] = useState("Free");
-  useEffect(fetchCourses, [fetchCourses]);
+  const token = localStorage.getItem('token')
+  useEffect(() => fetchCourses(token),  [token, fetchCourses])
+
   const handleClick = (e) => {
     setType(e.target.getAttribute("data-value"));
   };
@@ -49,10 +51,9 @@ const Course = ({ courseData, fetchCourses, history }) => {
             <CourseTypeList handleClick={handleClick} />
           </div>
         </div>
-        {courseData.courses ? (
+        {courseData && courseData.courses ? (
           <Wrapper>
             <Courses
-              courseData={courseData.courses}
               path={history.location.pathname}
               type={type}
             ></Courses>
@@ -67,9 +68,7 @@ const Course = ({ courseData, fetchCourses, history }) => {
               </Link>
             </div>
           </Wrapper>
-        ) : (
-          <SubHeader>You currently have no course</SubHeader>
-        )}
+        ): (<SubHeader>No content</SubHeader>)}
       </PageStyle>
       <Footer />
     </>
@@ -80,4 +79,8 @@ const mapStateToProps = (store) => ({
   courseData: store.courses.courses,
 });
 
-export default connect(mapStateToProps, { fetchCourses })(Course);
+// const mapDispatchToProps = dispatch => ({
+//   fetchCourses: () => dispatch(fetchCourses())
+// })
+
+export default connect(mapStateToProps, {fetchCourses})(Course);

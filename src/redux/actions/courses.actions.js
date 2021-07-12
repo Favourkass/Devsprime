@@ -20,8 +20,8 @@ const fetchCourseFailure=(error)=>{
     }
 }
 
-const token = localStorage.getItem("token")
-export const fetchCourses=()=>async (dispatch)=>{
+// const token = localStorage.getItem("token")
+export const fetchCourses=(token)=>async (dispatch)=>{
        try{
          const response=await request.get("learner/courses/", headers(token)); 
          return dispatch(fetchCourseSuccess(response));

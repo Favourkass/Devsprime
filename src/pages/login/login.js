@@ -11,6 +11,7 @@ import LoginSchema from "./validation";
 import Logo from "../../components/logo";
 import Input from "../../components/Input";
 import login from "../../redux/actions/auth/login.action";
+import {fetchUser} from "../../redux/actions/userprofile.action";
 import NavBar from "../../components/navbar/NavBarWraper";
 import Footer from "../../components/Footer";
 import {
@@ -27,10 +28,12 @@ import {
 
 const initialValues = { email: "", password: "" };
 
-const Login = ({ loginData, login, history }) => {
-  const isAuthenticated = (loginRes, isLogin) => {
+const Login = ({ loginData, login, fetchUser, currentUser, history }) => {
+  console.log(currentUser, 'this is current user')
+
+  const isAuthenticated = (loginRes, isLogin, currentUser) => {
     if (isLogin && loginRes.message === "success") {
-      success(history);
+      success(history, currentUser);
     } else if (isLogin && loginRes.message === "failure") {
       const err = Object.values(loginRes.errors);
       toast.error(err[0]);
@@ -40,7 +43,7 @@ const Login = ({ loginData, login, history }) => {
   };
   const [isLogin, setIsLogin] = useState(false);
 
-  useEffect(() => {}, [loginData]);
+  useEffect(() => {}, [loginData, currentUser]);
 
   return (
     <LoginDiv>
@@ -61,6 +64,8 @@ const Login = ({ loginData, login, history }) => {
                 onSubmit={async (values) => {
                   setIsLogin(false);
                   await login(values);
+                  const token = localStorage.getItem('token')
+                  await fetchUser(token)
                   setIsLogin(true);
                 }}
               >
@@ -117,7 +122,7 @@ const Login = ({ loginData, login, history }) => {
                 )}
               </Formik>
             </div>
-            {isAuthenticated(loginData, isLogin)}
+            {isAuthenticated(loginData, isLogin, currentUser)}
           </FormStyle>
           <ImageDiv />
         </SignUpStyle>
@@ -130,15 +135,26 @@ const Login = ({ loginData, login, history }) => {
   );
 };
 
-const success = (history) => {
+const success = (history, currentUser) => {
   toast.success("Login Successful");
-  setInterval(function () {
-    history.push("/dashboard");
-  }, 2500);
-  return;
+  const {users: {data} } = currentUser
+  if(data.is_learner) {
+    setInterval(function () {
+      history.push("/dashboard");
+    }, 2500);
+    return;
+  }else if(data.is_instructor) {
+    setInterval(function () {
+      history.push("/dashboard/instructor")
+      return;
+    }, 2500)
+  }else{
+    return null;
+  }
 };
 const mapStateToProps = (store) => ({
   loginData: store.login,
+  currentUser: store.user
 });
 
-export default connect(mapStateToProps, { login })(Login);
+export default connect(mapStateToProps, { login, fetchUser })(Login);

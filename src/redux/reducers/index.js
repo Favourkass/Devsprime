@@ -1,4 +1,6 @@
 import { combineReducers } from "redux";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 import LoginReducer from "./auth/login.reducer";
 import getCourseRudcer from './courseOverview.reducer';
@@ -17,6 +19,14 @@ import AllCoursesReducer from "./all_courses.reducer";
 import cartlistReducer from "./cart.reducer"
 
 
+const persistConfig = {
+  key: 'devsprime',
+  storage,
+  whiteList: ['user', 'courses']
+}
+
+
+
 const rootReducer = combineReducers({
 signupInstructor: SignUpInstructorReducer,
 login:LoginReducer,
@@ -32,4 +42,4 @@ getCourse: getCourseRudcer,
 all_courses:AllCoursesReducer
 })
 
-export default rootReducer
+export default persistReducer(persistConfig, rootReducer)

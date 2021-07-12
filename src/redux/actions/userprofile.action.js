@@ -23,6 +23,18 @@ export const fetchUsers = () => {
   }
 }
 
+
+export const fetchUser = (token) => async dispatch => {
+  try {
+    const res = await request.get('/user/', headers(token))
+    const {data} = res
+    return dispatch(fetchUsersSuccess(data))
+  } catch (error) {
+    console.log(error);
+    return dispatch(fetchUsersFailure(error))
+  }
+}
+
 export const fetchUsersRequest = () => {
   return {
     type: FETCH_USERS_REQUEST

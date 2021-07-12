@@ -5,7 +5,7 @@ import MyLoader from '../../utils/loader';
 import LandingPage from '../../pages/LandingPage';
 import InstructorDashboard from '../../pages/instructor-dashboard';
 import PaymentPage from '../../pages/PaymentPage';
-import login from '../../pages/login/login';
+import Login from '../../pages/login/login';
 import DashboardCourse from '../../pages/LeanersDashboard/myCourses';
 
 import ForgotPassword from '../../pages/ForgotPassword';
@@ -33,7 +33,7 @@ const App = () => (
     <Switch>
       <Route exact path='/review/:cartId' component={ReviewOrder}/>
       <Route exact path='/' component={LandingPage} />
-      <Route exact path='/login' component = {login}/>
+      <Route exact path='/login' component={Login}/>
       <Route exact path='/dashboard/instructor' component={InstructorDashboard} />
       <Route exact path='/payment/:course_id' component={PaymentPage} />
         
@@ -56,5 +56,3 @@ const App = () => (
 )
 
 export default App
-
-
