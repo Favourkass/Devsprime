@@ -11,7 +11,7 @@ import LoginSchema from "./validation";
 import Logo from "../../components/logo";
 import Input from "../../components/Input";
 import login from "../../redux/actions/auth/login.action";
-import {fetchUser} from "../../redux/actions/userprofile.action";
+import { fetchUser } from "../../redux/actions/userprofile.action";
 import NavBar from "../../components/navbar/NavBarWraper";
 import Footer from "../../components/Footer";
 import {
@@ -26,10 +26,11 @@ import {
   LoginDiv,
 } from "./style";
 
+
+
 const initialValues = { email: "", password: "" };
 
 const Login = ({ loginData, login, fetchUser, currentUser, history }) => {
-  console.log(currentUser, 'this is current user')
 
   const isAuthenticated = (loginRes, isLogin, currentUser) => {
     if (isLogin && loginRes.message === "success") {
@@ -41,6 +42,7 @@ const Login = ({ loginData, login, fetchUser, currentUser, history }) => {
       return null;
     }
   };
+
   const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {}, [loginData, currentUser]);
@@ -135,15 +137,17 @@ const Login = ({ loginData, login, fetchUser, currentUser, history }) => {
   );
 };
 
+
 const success = (history, currentUser) => {
-  toast.success("Login Successful");
   const {users: {data} } = currentUser
   if(data.is_learner) {
+    toast.success("Login Successful");
     setInterval(function () {
       history.push("/dashboard");
     }, 2500);
     return;
   }else if(data.is_instructor) {
+    toast.success("Login Successful");
     setInterval(function () {
       history.push("/dashboard/instructor")
       return;
@@ -152,9 +156,10 @@ const success = (history, currentUser) => {
     return null;
   }
 };
+
 const mapStateToProps = (store) => ({
   loginData: store.login,
-  currentUser: store.user
+  currentUser: store.user,
 });
 
 export default connect(mapStateToProps, { login, fetchUser })(Login);

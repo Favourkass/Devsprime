@@ -4,6 +4,7 @@ import {
   FETCH_USERS_FAILURE
 } from '../actions/types'
 import request, {headers} from "../../request"
+import { retrieveErrMessage } from '../../utils/helper';
 
 const token = localStorage.getItem('token');
 export const fetchUsers = () => {
@@ -23,17 +24,17 @@ export const fetchUsers = () => {
   }
 }
 
-
-export const fetchUser = (token) => async dispatch => {
+export const fetchUser = (token) => async (dispatch) => {
   try {
-    const res = await request.get('/user/', headers(token))
-    const {data} = res
-    return dispatch(fetchUsersSuccess(data))
+    dispatch(fetchUsersRequest);
+    const res = await request.get("/user/", headers(token));
+    const {data} = res;
+    return dispatch(fetchUsersSuccess(data));
   } catch (error) {
-    console.log(error);
-    return dispatch(fetchUsersFailure(error))
+    const err = retrieveErrMessage(error);
+    return dispatch(fetchUsersFailure(err));
   }
-}
+};
 
 export const fetchUsersRequest = () => {
   return {
@@ -54,3 +55,4 @@ export const fetchUsersFailure = error => {
     payload: error
   }
 }
+
