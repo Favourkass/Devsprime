@@ -52,9 +52,9 @@ const Card = styled.section`
     border-radius: 10px;
     margin: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    min-width: 303px;
-    width: 303px;
-    height: 279px;
+    min-width: 270px;
+    width: 270px;
+    height: 270px;
 `;
 
 
@@ -105,4 +105,11 @@ const Title = styled.h3`
     text-align: justified;
 `;
 
-export { CardContainer, Card, Tier, Image, TitleContainer, Title };
+const Loader = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+export { CardContainer, Card, Tier, Image, TitleContainer, Title, Loader };

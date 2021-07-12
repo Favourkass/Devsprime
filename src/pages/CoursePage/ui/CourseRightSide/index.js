@@ -1,6 +1,7 @@
 import { SubHeader, Paragraph } from "../../../../components/typography"
 import { AllCoursesContainer, CourseTypeContainer, Contain, PriceContainer } from "./style";
 import { black } from "../../../../components/colour/colour"
+import PriceBar from "./PriceBar";
 
 const AllCourses = ({ courseCategories }) => {
     return (  
@@ -30,8 +31,7 @@ const PriceRange = ({ lowest, highest }) =>{
     return (
         <PriceContainer>
             <SubHeader children="Price" color={black} weight="700"/>
-            <Paragraph children={`Price $${lowest} - $${highest}`} size="11"/>
-
+            <PriceBar lowest={lowest} highest={highest}/>
         </PriceContainer>
     )
 }

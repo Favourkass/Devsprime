@@ -10,23 +10,22 @@ const BodyContainer = styled.div`
 `;
 
 const CourseBodyMainContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
     margin-top: 50px;
+    display: grid;
+    grid-gap: 30px;
 
-    @media screen and (max-width: 600px){
-        display: block;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
+    .courseview{
+        grid-column: 1/5;
+    }
+
+    .coursesort{
+        grid-column: 6/7;
+        grid-row: 1/7;
     }
 `;
 
 const CourseView = styled.div`
-    flex-basis: 75%;
-    @media screen and (max-width: 600px){
-        flex-basis: 100%;
-    }
+
 `;
 
 const CourseSort = styled.div`

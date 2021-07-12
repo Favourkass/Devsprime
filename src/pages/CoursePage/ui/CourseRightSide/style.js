@@ -14,12 +14,14 @@ const CourseTypeContainer = styled.div`
         height: 40px;
         border: 1px solid ${black};
         border-color: ${black};
+        color: ${black};
         border-radius: 100%;
         text-align: center;
         display: flex;
         align-items: center;
         justify-content: center;
         margin-left: 3%;
+        cursor: pointer;
     }
 `;
 

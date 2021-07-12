@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import { black } from "../../../../components/colour/colour"
+
 
 const DropStyle = styled.div`
     .select .placeholder{
@@ -11,6 +13,7 @@ const DropStyle = styled.div`
         outline: none;
         text-align: center;
         padding: 0 10px;
+        color: ${black};
     }
 `;
 

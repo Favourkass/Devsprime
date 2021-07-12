@@ -10,7 +10,7 @@ const show = "Show     6    12     16"
 const drop = {values:[{id: 1, name: "Computer Architecture"} , {id:2, name: "Java"},
         {id: 3, name: "Discrete Mathematics"}],}
 
-const CourseHeader = () => {
+const CourseHeader = (className) => {
     return(
         <HeaderStyle>
             <div className="left">

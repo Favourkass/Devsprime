@@ -84,14 +84,11 @@ const Courses = [
 ];
 
 const CourseCategories = [
-    {title: "Web Development", total: 2908},
-    {title: "Designs", total: 11293},
-    {title: "Photography", total: 2230},
-    {title: "3D Artist", total: 9828},
-    {title: "Motion Graphics", total: 8223},
-    {title: "Software Engineer", total: 1001},
-    {title: "UI/UX RoadMap", total: 734},
-    {title: "Sound & Music", total: 1223},
+    {title: "Web Development", total: 208},
+    {title: "Designs", total: 193},
+    {title: "Photography", total: 230},
+    {title: "Software Engineer", total: 100},
+    {title: "UI/UX RoadMap", total: 34},
     {title: "Digital Marketing", total: 382},
 ]
 

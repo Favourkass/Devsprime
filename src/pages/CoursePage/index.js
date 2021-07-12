@@ -33,16 +33,16 @@ const CoursePage = ({ courseData, fetchCourses, history}) => {
         <NavBar/>
         <Hero />
         <Container className='container'>
-            <BodyContainer>
+            <BodyContainer >
                 <Search 
                     placeholder="Search for Courses i.e web-development"
                 />
-                <CourseBodyMainContainer>
-                    <CourseView>
-                        <CourseHeader />
-                        <CoursesContainer courses={filteredCourses} path={history.location.pathname}/>
+                <CourseBodyMainContainer >
+                    <CourseView className="courseview">
+                        <CourseHeader className="courseheader"/>
+                        <CoursesContainer className="coursecontainer" courses={filteredCourses} path={history.location.pathname}/>
                     </CourseView>
-                    <CourseSort >
+                    <CourseSort className="coursesort">
                         <AllCourses courseCategories={ CourseCategories }/>
                         <CourseType courseTypes={courseTypes} handleClick= {handleClick}/>
                         <PriceRange lowest={priceRange.lowest} highest={priceRange.highest} />
