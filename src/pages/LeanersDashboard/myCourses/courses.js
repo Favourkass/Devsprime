@@ -14,10 +14,10 @@ const Courses = ({ courseData, type }) => {
   return (
     <>
       {courseData && courseData.courses.length > 0 ? (
-        courseData.courses.map((item) => {
+        courseData.courses.map((item, idx) => {
           if (item.course_type.toLowerCase() === coursetype.toLowerCase()) {
             return (
-              <Link key={item.id} to={`courses/${item.id}`}>
+              <Link key={idx} to={`courses/${item.id}`}>
                 <CourseStyle>
                   <CourseCard
                     image={item.cover_img}

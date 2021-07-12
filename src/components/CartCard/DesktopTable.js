@@ -3,30 +3,34 @@ import {ColumnHeader,Table,RowCell} from "./style"
 import ProductInfo from "./ProductInfo"
 
 
-const DesktopTable=(props)=>{
+const DesktopTable=({cartID,title,description,cover_img,instructor_name,date,onDelete,price,course_type})=>{
+    const payload =localStorage.getItem("token")
     return(
         <>
             <Table className="desktop-size">
+                <tbody>
                 <tr >
                     <ColumnHeader>Product Name & Details</ColumnHeader>
                     <ColumnHeader>Price</ColumnHeader>
                     <ColumnHeader id="cart">Course Type</ColumnHeader>
                     <ColumnHeader><img src="https://res.cloudinary.com/devsprime/image/upload/v1625309854/media/Close_gn3aqb.svg" 
-                        alt="close" />
+                        alt="close"
+                        onClick={()=>onDelete(payload,cartID)}/>
                     </ColumnHeader>
                 </tr>
                 <tr>
                     <RowCell id="price"><ProductInfo
-                            title={props.title}
-                            description={props.description}
-                            cover_img ={props.cover_img}
-                            instructor_name={props.instructor_name}
-                            date = {props.date}                 
+                            title={title}
+                            description={description}
+                            cover_img ={cover_img}
+                            instructor_name={instructor_name}
+                            date = {date}                 
                     />                   
                     </RowCell>
-                    <RowCell id="price">#{props.price}</RowCell>
-                    <RowCell>{props.course_type}</RowCell>
+                    <RowCell id="price">#{price}</RowCell>
+                    <RowCell>{course_type}</RowCell>
                 </tr>
+                </tbody>
             </Table>
         </>
     )

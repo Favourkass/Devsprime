@@ -16,7 +16,10 @@ const CartCard=(props)=>{
                 instructor_name={props.instructor_name}
                 date = {props.created_at}
                 course_type={props.course_type}
-                price={props.price}               
+                price={props.price}
+                onDelete={props.onDelete}
+                cartID={props.cartId}
+
                 />
                 <MobileTable 
                 title={props.title}
@@ -25,7 +28,9 @@ const CartCard=(props)=>{
                 instructor_name={props.instructor_name}
                 date = {props.created_at}
                 course_type={props.course_type}
-                price={props.price}                
+                price={props.price}
+                onDelete={props.onDelete}
+                cartID={props.cartId}                
                 />
                 <PriceSection price={props.price} cartId={props.cartId}/>
             </MainWrapper>
@@ -33,3 +38,4 @@ const CartCard=(props)=>{
     )
 }
 export default CartCard;
+

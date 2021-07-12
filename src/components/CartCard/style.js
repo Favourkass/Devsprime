@@ -17,16 +17,6 @@ export const Wrapper = styled.div`
     ${({className})=>className==="info" && css`
         margin-left: 10px;
     `}
-
-    ${({className})=>className==="cart-delivery" && css`
-        text-align: center;
-        font-family: Proxima Nova;
-        font-size: 0.8em;
-        line-height: 25px;
-        letter-spacing: 0em;
-        text-align: justified;
-        color:#5C5C5C, 100%;
-    `}
     ${({className})=>className==="total-price" && css`
         display: flex;
         justify-content:flex-end;
@@ -141,5 +131,6 @@ export const Spans = styled.span`
 export const Img =styled.img`
     height:100px;
     border-radius: 10px;
+    margin-left:5px
 
 `

@@ -1,7 +1,7 @@
-import { GET_CART } from "../actions/types";
+import { GET_CART,REMOVE_CART } from "../actions/types";
 
 
-const initialState = { cartList: {} }
+const initialState = { cartList: {},isLoading:true }
 
 const cartlistReducer = (state = initialState, action) => {
   const { type, payload } = action
@@ -10,7 +10,14 @@ const cartlistReducer = (state = initialState, action) => {
     case GET_CART:
       return {
         ...state,
-        cartList: payload.data
+        cartList: payload.data,
+        isLoading:false
+      }
+
+    case REMOVE_CART:
+      return {
+        ...state,
+        isLoading:false
       }
     
     default:
@@ -18,5 +25,5 @@ const cartlistReducer = (state = initialState, action) => {
   }
 
 }
-
 export default cartlistReducer;
+

@@ -4,26 +4,35 @@ import CartCard from "../../components/CartCard/index"
 import Footer from "../../components/Footer";
 import Header from "./Header"
 import PriceTable from "../../components/CartCard/PriceTable"
-import {getCartList} from "../../redux/actions/cart.action"
+import {getCartList,removeCart} from "../../redux/actions/cart.action"
 import {useEffect} from "react"
 import { connect } from "react-redux";
 import moment from "moment"
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { SubHeader } from "../../components/typography";
 
 
-const Cart=({getCartList,cartList})=>{
+const Cart=({isLoading,getCartList,cartList,removeCart})=>{
     const payload =localStorage.getItem("token")
-    
-    useEffect(()=>getCartList(payload),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [])
+    const handleDelete=(payload,id)=>{
+        if(window.confirm("Are you sure you want to remove this item ?")){
+        removeCart(payload,id)
+        toast("DELETING")
+        getCartList(payload);
+        }
+    }
+    useEffect(()=>getCartList(payload),[getCartList, payload])
+
     return(
         <>
             <NavBar />
             <Header />
+            <ToastContainer />
             {cartList.cartList.Courses && cartList.cartList.Courses.length> 0 ? cartList.cartList.Courses.map((item, i)=>{
                 return(
-                    <CartCard 
-                    key={item.id}
+                    <CartCard
+                    key={i} 
                     title={item.title}
                     description={item.description}
                     cover_img ={item.cover_img}
@@ -32,10 +41,13 @@ const Cart=({getCartList,cartList})=>{
                     created_at={moment(item.created_at).format('DD MM, YYYY')}
                     course_type={item.course_type}
                     cartId={item.id}
+                    onDelete={handleDelete}
                     />
                 )
             })
-            :<div className='container'>You have no item in the cart</div>}
+            :<div style={{margin:"auto",textAlign:"center"}}>
+                <SubHeader size={25}>Your Cart is Empty</SubHeader>
+            </div>}
 
             <PriceTable white />
             <Footer />
@@ -44,8 +56,9 @@ const Cart=({getCartList,cartList})=>{
 }
 const mapStateToProps = (store) => ({
     cartList: store.cartList,
+    isLoading: store.cartList.isLoading
   });
   
-export default connect(mapStateToProps, { getCartList })(Cart);
+export default connect(mapStateToProps, { getCartList,removeCart })(Cart);
 
 
