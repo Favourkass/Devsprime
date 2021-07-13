@@ -22,6 +22,7 @@ import Cart from '../../pages/Cart/index';
 
 import AboutPage from '../../pages/about/about';
 import CourseOverview from '../../pages/CourseOverview'
+import ErrorPage from '../../pages/errorPage';
 
 
 
@@ -52,6 +53,7 @@ const App = () => (
       <Route exact path='/courses' component={CoursePage} />
       <Route exact path='/cart' component={Cart} />
       <Route exact path='/about' component = {AboutPage}/>
+      <Route  component = {ErrorPage}/>
     </Switch>
   </Suspense>
 )
