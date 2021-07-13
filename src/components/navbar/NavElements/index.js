@@ -19,10 +19,10 @@ const NavElements= (props)=>{
     }
 
     
-      const SignUp =   <Link to={`/login`}><Button primary small>Sign Up</Button> </Link>
+      const SignUp =   <Link to={`/signup`}><Button primary small>Sign Up</Button> </Link>
       const LogOut =   <Link to={""}><Button primary small>Log Out</Button> </Link>
 
-      const LogIn = <Link to={`/signup`}><Button primary small>Log In</Button> </Link>
+      const LogIn = <Link to={`/login`}><Button primary small>Log In</Button> </Link>
      
 
 

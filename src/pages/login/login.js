@@ -143,13 +143,13 @@ const success = (history, currentUser) => {
   if(data.is_learner) {
     toast.success("Login Successful");
     setInterval(function () {
-      history.push("/dashboard");
+      window.location="/dashboard";
     }, 2500);
     return;
   }else if(data.is_instructor) {
     toast.success("Login Successful");
     setInterval(function () {
-      history.push("/dashboard/instructor")
+      window.location="/dashboard/instructor"
       return;
     }, 2500)
   }else{
