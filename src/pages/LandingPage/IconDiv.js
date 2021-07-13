@@ -45,7 +45,7 @@ const Circle = styled.div`
 `
 
 const IconDivs = () => {
-    return <Div>
+    return <Div className="container">
         <DivContent>
             <DivContentImage style={{ fontSize: "16px"}}>
                 <Img src="https://res.cloudinary.com/devsprime/image/upload/v1624373087/Icons%20and%20Logo/Vector_7_kewffq.png"/>

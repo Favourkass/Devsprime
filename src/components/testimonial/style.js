@@ -8,8 +8,8 @@ margin-top: 20px;
 const Card = styled.div`
 background: #ffffff;
 border: 1px solid #efefef;
-width: 275px;
-height: fit-content;
+max-width: 270px;
+height: 325px;
 margin: 0 10px;
 padding: 30px 10px;
 box-shadow: 0px 12px 35px rgba(160, 121, 0, 0.2);

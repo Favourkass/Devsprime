@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const Container = styled.div`
-    padding-bottom: 95px;
+    padding-bottom: 5rem;
     display:flex;
     background-position:bottom-center;
     background-size:cover;
@@ -18,19 +18,21 @@ const ImageDiv = styled.div`
     display:flex;
     align-items: center;
     position:relative;
+    max-width: 50%;
     
     @media only screen and (max-width:750px){
         display:none;
     }
-
-`
-const TextDiv = styled.div`
+    
+    `
+    const TextDiv = styled.div`
     flex:1;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     padding-right:100px;
+    max-width: 40%;
     @media only screen and (max-width:750px){
         width:100%;
         padding:30px;
@@ -39,7 +41,9 @@ const TextDiv = styled.div`
 `
 
 const ImageContent = styled.div`
-    border-radius:33% 67% 65% 35% / 50% 45% 55% 50%;
+    // border-radius:33% 67% 65% 35% / 50% 45% 55% 50%;
+  border-radius: 0% 100% 59% 41% / 100% 45% 55% 0%;
+
     overflow:hidden;
     width:100%;
     position:relative;

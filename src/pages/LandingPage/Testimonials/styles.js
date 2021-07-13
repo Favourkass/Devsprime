@@ -11,11 +11,9 @@ export const Section = Styled.section`
 `;
 
 export const ReviewContainer = Styled.div`
-    box-sizing: border-box;
     display: flex;
     align-items: stretch;
     flex-flow: row wrap;
-    // justify-contents: center;
     @media (max-width: 768px) {
         flex-flow: column wrap;
         align-items : center;

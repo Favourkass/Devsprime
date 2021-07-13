@@ -1,24 +1,21 @@
-import React, { useEffect } from "react";
-import { connect } from 'react-redux'
-import { fetchCourses } from '../../../redux/actions/courses.actions'
 import { Link } from "react-router-dom";
-import { Courses } from './data'
+// import { Courses } from './data'
 import { Card, Tier, Image, TitleContainer, Title, CardContainer, CourseTitle } from "./style";
 import { CenteredBtn } from "../CourseList/style"
 import { Header } from "../../../components/typography";
 import Button from '../../../components/button'
 
 
-// export const CoursesContainer = ({ courseData, fetchCourses, path }) => {
-export const CoursesContainer = ({ courseData, fetchCourses }) => {
+export const CoursesContainer = ({ courses}) => {
+// export const CoursesContainer = ({ courseData, fetchCourses }) => {
 
-    useEffect(fetchCourses, [fetchCourses]);
+
     
-    // const displayCourses = courseData.courses && Object.keys(courseData.courses).length> 0 ? courseData.courses
-    const displayCourses = Courses
+    const displayCourses = courses && Object.keys(courses).length> 0 ? courses
+    // const displayCourses = Courses
             .slice(0, 13)
             .map((course)=>(
-                // <Link key={course.id} to={`${path}/${course.id}`}>
+                <Link key={course.id} to={`courses/${course.id}`}>
                     <Card >
                         <Tier>{course.type_id}</Tier>
                         <Image src={course.cover_img} />
@@ -26,13 +23,13 @@ export const CoursesContainer = ({ courseData, fetchCourses }) => {
                             <Title>{course.title}</Title>
                         </TitleContainer>
                     </Card>
-                // </Link>
+                </Link>
             ))
-            // : <div>loading...</div>
+            : <div>No Course Available</div>
 
 
     return (
-        <>
+        <div className="container">
             <CourseTitle>
                 <Header>Courses</Header>
             </CourseTitle>
@@ -47,13 +44,8 @@ export const CoursesContainer = ({ courseData, fetchCourses }) => {
                 </Link>
             </CenteredBtn>
            
-        </>
+        </div>
     )
 };
 
-const mapStateToProps = (store) => ({
-  courseData: store.courses.courses,
-});
-
-export default connect(mapStateToProps, { fetchCourses })(CoursesContainer);
 

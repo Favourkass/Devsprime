@@ -2,7 +2,7 @@ import Styled from "styled-components";
 
 
 export const StatisticWrapper = Styled.div`
-  width: 231px;
+  max-width: 231px;
   padding-left: 30px;
   padding-right: 10px;
 `
