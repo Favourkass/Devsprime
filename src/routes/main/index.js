@@ -24,6 +24,7 @@ import AboutPage from '../../pages/about/about';
 import CourseOverview from '../../pages/CourseOverview'
 
 
+
 const App = () => (
   <Suspense fallback={
     <div>

@@ -5,13 +5,16 @@ export const SimilarCoursesContainer = styled.div`
     justify-content:center;
     margin-left:8%;
     flex-direction:column;
-    
+
 `
 export const Wrapper = styled.div`
     display:flex;
     margin-top:-5%;
     margin-bottom:2%;
     overflow:scroll;
+    margin-bottom:2%;
+    overflow:scroll;
+
     
     @media screen and (max-width:960px){
     display:flex;
@@ -26,6 +29,7 @@ export const CourseCardWrapper = styled.div `
     margin-top:5%;
     padding-left:1%;
     
+
     @media screen and (max-width:960px){
     width:90%;
     }

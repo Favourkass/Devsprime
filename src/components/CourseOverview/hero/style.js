@@ -6,19 +6,18 @@ export const HeroWrapper = styled.div `
     justify-content:center;
     align-items: center;
     background: linear-gradient(253.58deg, #FFC000 1.55%, #FF8A00 95.8%);
-    height:255px;
-    
+    padding: 5rem 0;    
 
 `
 export const Text = styled.p`
     display:flex;
     justify-content:space-around;
     align-items:center;
-    width:50%;
+    max-width: 750px;
     text-align:center;
-    font-family: Proxima Nova;
     font-size: 18px;
-    line-height: 17px;
+    font-weight: light;
+    line-height: 1.5rem;
     color: #FFFFFF;
     
     
@@ -26,9 +25,18 @@ export const Text = styled.p`
 
 export const ButtonWrapper = styled.div`
     display:flex;
-    justify-content:space-around;
     align-items:center;
     height:auto;
-    padding-top:2%;
-    
+    margin-top:1rem;
+    .add-cart-btn{
+    color: #FFC000;
+    background: "white";
+    padding: 12px 30px;
+    border-radius: 100px;
+    box-shadow: 0px 12px 35px rgba(160, 121, 0, 0.2);
+    border: none;
+    margin:2.5px;
+    font-weight:bold;
+    cursor: pointer;
+    }
 `

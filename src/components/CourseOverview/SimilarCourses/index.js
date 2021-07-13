@@ -38,39 +38,3 @@ const SimilarCourses = ({ allCourses, category_id, path }) => {
 
 export default SimilarCourses;
 
-// import React from 'react';
-// import {Wrapper, CourseCardWrapper, SimilarCoursesContainer} from './style';
-// import {SubHeader} from '../../typography/index';
-// import CourseCard from '../../courseCard/index';
-
-// const SimilarCourses = () =>{
-
-//     return(
-
-//         <SimilarCoursesContainer>
-//             <SubHeader>Similar Courses</SubHeader>
-
-//             <Wrapper>
-// <CourseCardWrapper>
-//     <CourseCard tier='Premium' title='How To Have A Good Listening Ear For Music' image='https://res.cloudinary.com/devsprime/image/upload/v1624389006/media/our_team_hedvdn.jpg'/>
-// </CourseCardWrapper>
-
-//                 <CourseCardWrapper>
-//                     <CourseCard tier='Premium' title='How To Have A Good Listening Ear For Music' image='https://res.cloudinary.com/devsprime/image/upload/v1624389006/media/our_team_hedvdn.jpg'/>
-//                 </CourseCardWrapper>
-
-// <CourseCardWrapper>
-//     <CourseCard tier='Premium' title='How To Have A Good Listening Ear For Music' image='https://res.cloudinary.com/devsprime/image/upload/v1624389006/media/our_team_hedvdn.jpg'/>
-// </CourseCardWrapper>
-
-//                 <CourseCardWrapper>
-//                     <CourseCard tier='Premium' title='How To Have A Good Listening Ear For Music' image='https://res.cloudinary.com/devsprime/image/upload/v1624389006/media/our_team_hedvdn.jpg'/>
-//                 </CourseCardWrapper>
-
-//             </Wrapper>
-//         </SimilarCoursesContainer>
-//     )
-
-// }
-
-// export default SimilarCourses;

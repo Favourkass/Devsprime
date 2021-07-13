@@ -11,7 +11,7 @@ export const BackToCart = styled.img`
 export const EntireWrapper = styled.div`
     background-color: #FFF7DF;
     border-radius: 20px;
-    margin-bottom: 30px;
+    margin: 1rem 0 5rem 0;
     box-sizing: border-box;
     
 

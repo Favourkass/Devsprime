@@ -11,7 +11,7 @@ const VideoPlayer = ({url, title, course_url,type}) => {
     useEffect(()=>setLesson(url),[url])
     return(
         <VideoPlayerWrapper>
-            <ReactPlayer width='100%' height='100vh' controls url={lesson}/>
+            <ReactPlayer width='100vw' height='95vh' controls url={lesson}/>
             <CourseDropDown 
             type={type}
             title={title} 

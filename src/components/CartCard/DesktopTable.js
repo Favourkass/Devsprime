@@ -13,7 +13,8 @@ const DesktopTable=({cartID,title,description,cover_img,instructor_name,date,onD
                     <ColumnHeader>Product Name & Details</ColumnHeader>
                     <ColumnHeader>Price</ColumnHeader>
                     <ColumnHeader id="cart">Course Type</ColumnHeader>
-                    <ColumnHeader><img src="https://res.cloudinary.com/devsprime/image/upload/v1625309854/media/Close_gn3aqb.svg" 
+                    <ColumnHeader>
+                        <img className='close' src="https://res.cloudinary.com/devsprime/image/upload/v1625309854/media/Close_gn3aqb.svg" 
                         alt="close"
                         onClick={()=>onDelete(payload,cartID)}/>
                     </ColumnHeader>

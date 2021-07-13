@@ -14,7 +14,7 @@ import {
 } from "../../redux/actions/courseOverview.action";
 
 const CourseOverview = ({
-  getCourse,
+  getCourse: {course},
   getCoursesDetail,
   getAllCourses,
   allCourses,
@@ -22,27 +22,8 @@ const CourseOverview = ({
   history,
   match,
 }) => {
-  var course_overview = "";
-  var title = "";
-  var course_url = {};
-  var type = "";
-  var category_id = "";
-  var description = "";
-  var created_at = "";
-  var course_id = "";
-
-  if (Object.keys(getCourse).length > 0) {
-    course_overview = getCourse.course.overview;
-    title = getCourse.course.title;
-    course_url = getCourse.course.course_url;
-    type = getCourse.course.type_id;
-    category_id = getCourse.course.category_id;
-    description = getCourse.course.description;
-    created_at = getCourse.course.created_at;
-    course_id = getCourse.course.id;
-    console.log(getCourse.course.id, token);
-  }
-
+  console.log(course, 'fkjfdsfkjdssd');
+  
   useEffect(() => {
     getCoursesDetail(match.params.course_id);
     getAllCourses();
@@ -50,30 +31,30 @@ const CourseOverview = ({
 
   return (
     <>
-      <NavBar />
-      <CourseOverviewHero token={token} course_id={course_id} />
+      <NavBar token={token} />
+      <CourseOverviewHero title={course.title} token={token} course_id={course.id} />
       <VideoPlayer
-        url={course_overview}
-        title={title}
-        course_url={course_url}
-        type={type}
+        url={course.overview}
+        title={course.title}
+        course_url={course.course_url}
+        type={course.type}
       />
       <CourseNav />
       <OverviewDetails
-        url={course_overview}
-        title={title}
-        course_url={course_url}
-        type={type}
-        description={description}
-        created_at={created_at}
+        url={course.overview}
+        title={course.title}
+        course_url={course.course_url}
+        type={course.type_id}
+        description={course.description}
+        created_at={course.created_at}
       />
       <SimilarCourses
         allCourses={allCourses}
-        category_id={category_id}
+        category_id={course.category_id}
         path={history.location.pathname}
       />
       <NewsLetterSubscription />
-      <CourseOverviewHero />
+      <CourseOverviewHero token={token} course_id={course.course_id} />
       <Footer />
     </>
   );

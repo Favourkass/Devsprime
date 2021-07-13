@@ -13,6 +13,18 @@ const NavElements= (props)=>{
         setActive(!active)
     }
 
+    var isAuthenticated = false
+    if(props.token !== undefined && props.token!==null){
+        isAuthenticated=true;
+    }
+
+    
+      const SignUp =   <Link to={`/login`}><Button primary small>Sign Up</Button> </Link>
+      const LogOut =   <Link to={""}><Button primary small>Log Out</Button> </Link>
+
+      const LogIn = <Link to={`/signup`}><Button primary small>Log In</Button> </Link>
+     
+
 
     return(
     <>
@@ -27,9 +39,12 @@ const NavElements= (props)=>{
          <Link to={`signup/instructor`}>
          <Button primary small>Become a Contributor</Button> 
          </Link>
-         <Link to={`/login`}>
-         <Button primary small>Log In</Button> 
-         </Link>
+        {isAuthenticated ? LogOut : LogIn}
+        {SignUp} 
+        
+      
+         
+        
     </ElementWrapper>
     </>
     )

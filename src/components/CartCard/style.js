@@ -55,6 +55,9 @@ export const ColumnHeader = styled.th`
     border-bottom: 1px solid #E5E5E5;
     @media (max-width:599px){
         border-bottom: none;}
+    .close{
+        cursor: pointer;
+    }
 `
 export const RowCell = styled.td`
     text-align: ${({id})=>id==="price"?"left":"center"};

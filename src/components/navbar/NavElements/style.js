@@ -28,9 +28,9 @@ export const NavBtn = styled.button`
     color:#fff;
     border-radius:50%;
     border:none;
-    position:fixed;
-    top:0px;
-    right:0px;
+    position:absolute;
+    top:0%;
+    right:0%;
     cursor:pointer;
     transform: translate(-100%, 60%);
     font-size: 1.8rem;

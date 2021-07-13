@@ -9,7 +9,7 @@ const InstructorDetails = () =>{
             <SubHeader> Instructor</SubHeader>
             
             <ImageWraper>
-                <img src={''} alt='instrictor' />
+                <img src={''} alt='instructor' />
             </ImageWraper>
             
             <SubHeader color='#5C5C5C' weight="bold"> Bosun Jones</SubHeader>
