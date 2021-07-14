@@ -8,17 +8,22 @@ export const Nav = styled.nav`
     top: 0px;
     background: #FFFFFF;
     box-shadow: 0px 12px 35px rgba(160, 121, 0, 0.2);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     font-size: 1rem;
+    padding: .5rem 0;
     z-index: 10;
+    .nav-items{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
 
-
+    }
+    
     @media screen and (max-width: 960px) {
-        transition: 0.8s all ease;
-        display:flex;
-        flex-direction:column;
+        .nav-items{
+            transition: 0.8s all ease;
+            display:flex;
+            flex-direction:column;
+        }
     }
 
     @media screen and (max-width: 960px){
