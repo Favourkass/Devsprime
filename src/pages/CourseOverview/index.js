@@ -14,7 +14,7 @@ import {
 } from "../../redux/actions/courseOverview.action";
 
 const CourseOverview = ({
-  getCourse: {course},
+  getCourse: { course },
   getCoursesDetail,
   getAllCourses,
   allCourses,
@@ -22,8 +22,6 @@ const CourseOverview = ({
   history,
   match,
 }) => {
-  console.log(course, 'fkjfdsfkjdssd');
-  
   useEffect(() => {
     getCoursesDetail(match.params.course_id);
     getAllCourses();
@@ -32,29 +30,39 @@ const CourseOverview = ({
   return (
     <>
       <NavBar token={token} />
-      <CourseOverviewHero title={course.title} token={token} course_id={course.id} />
-      <VideoPlayer
-        url={course.overview}
-        title={course.title}
-        course_url={course.course_url}
-        type={course.type}
-      />
-      <CourseNav />
-      <OverviewDetails
-        url={course.overview}
-        title={course.title}
-        course_url={course.course_url}
-        type={course.type_id}
-        description={course.description}
-        created_at={course.created_at}
-      />
-      <SimilarCourses
-        allCourses={allCourses}
-        category_id={course.category_id}
-        path={history.location.pathname}
-      />
-      <NewsLetterSubscription />
-      <CourseOverviewHero token={token} course_id={course.course_id} />
+      {course && course.title ? (
+        <>
+          <CourseOverviewHero
+            title={course.title}
+            token={token}
+            course_id={course.id}
+          />
+          <VideoPlayer
+            url={course.overview}
+            title={course.title}
+            course_url={course.course_url}
+            type={course.type}
+          />
+          <CourseNav />
+          <OverviewDetails
+            url={course.overview}
+            title={course.title}
+            course_url={course.course_url}
+            type={course.type_id}
+            description={course.description}
+            created_at={course.created_at}
+          />
+          <SimilarCourses
+            allCourses={allCourses}
+            category_id={course.category_id}
+            path={history.location.pathname}
+          />
+          <NewsLetterSubscription />
+          <CourseOverviewHero token={token} course_id={course.course_id} />
+        </>
+      ) : (
+        <div className="d-flex d-flex-center">This course is not available</div>
+      )}
       <Footer />
     </>
   );
