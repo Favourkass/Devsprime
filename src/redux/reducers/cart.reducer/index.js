@@ -20,7 +20,7 @@ const cartReducer = (state = initialState, action) => {
     case ADD_TO_CART_SUCCESS:
       return {
         ...state,
-        cart: payload.data,
+        cart: [...state.cart, payload.data],
         cartTotal: state.cart.length,
         loading: false,
       };

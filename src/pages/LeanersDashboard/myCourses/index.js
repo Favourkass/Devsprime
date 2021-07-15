@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { fetchCourses } from "../../../redux/actions/courses.actions";
 import { fetchUsers } from "../../../redux/actions/userprofile.action";
+import { getCartList } from "../../../redux/actions/cart.action";
 
 
 const courseTypeData = ["Free", "Premium"];
@@ -49,7 +50,9 @@ const Course = ({ courseData, fetchCourses, userData, history }) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     fetchCourses(token);
+    getCartList(token);
   }, [fetchCourses]);
+
   return (
     <>
       <NavBar />

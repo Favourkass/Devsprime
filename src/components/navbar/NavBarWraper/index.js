@@ -5,7 +5,7 @@ import Logo from "../../logo/index";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-const NavBar = ({ token, currentUser }) => {
+const NavBar = ({ token, currentUser, cart }) => {
   return (
     <Nav>
       <div className="nav-items">
@@ -17,6 +17,7 @@ const NavBar = ({ token, currentUser }) => {
           leftMargin="2.5px"
           token={token}
           currentUser={currentUser}
+          cart={cart}
         />
       </div>
     </Nav>
@@ -26,6 +27,7 @@ const NavBar = ({ token, currentUser }) => {
 const mapStateToProps = (store) => ({
   token: store.login.token,
   currentUser: store.user,
+  cart: store.cart, 
 });
 
 export default connect(mapStateToProps, null)(NavBar);

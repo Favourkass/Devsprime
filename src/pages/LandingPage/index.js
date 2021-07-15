@@ -224,7 +224,7 @@ function LandingPage({ courseData, fetchCourses }) {
       <StatisticDiv>
         <StaticRows className="container">
         {StatisticData && StatisticData.map((data, id) => (
-          <div className="static-card">
+          <div className="static-card" key={id}>
            <StatisticCard className='statisticCard' key={id} data={data} />
           </div>
         ))}

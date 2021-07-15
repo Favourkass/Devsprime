@@ -6,12 +6,11 @@ import Button from "../../button/index";
 import CartNotification from "../../CartNotification/CartNotification";
 import { Link } from "react-router-dom";
 
-const NavElements = ({ token, currentUser: { users } }, ...props) => {
-const [active, setActive] = useState(false)
-
-function handleActive(){
-    setActive(!active)
-}
+const NavElements = ({ token, cart, currentUser: { users } }, ...props) => {
+  const [active, setActive] = useState(false);
+  function handleActive() {
+    setActive(!active);
+  }
   //  if user do not sign in (Anonymous Nav)
   //  if user sign in as a Learner (Learner Nav)
   //   if user sign in and is an instructor
@@ -65,7 +64,9 @@ function handleActive(){
       <NavLink route="/contact" color="#FF8A00" size="20px">
         contact Us
       </NavLink>
-      <CartNotification number="12" />
+      <NavLink route="/cart">
+        <CartNotification number={cart.cartTotal} />
+      </NavLink>
       <Link to={`/signup/instructor`}>
         <Button primary small>
           Become a Contributor
@@ -114,9 +115,9 @@ function handleActive(){
         LeftMargin={props.leftMargin}
         RightMargin={props.rightMargin}
       >
-        {token && users && users.data.is_learner ? (
+        {token && users && users.data && users.data.is_learner ? (
           <LearnerNav />
-        ) : token && users && users.data.is_instructor ? (
+        ) : token && users && users.data && users.data.is_instructor ? (
           <InstructorNav />
         ) : (
           <AnonymousNav />
