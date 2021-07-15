@@ -72,11 +72,13 @@ const NavElements = ({ token, cart, currentUser: { users } }, ...props) => {
           Become a Contributor
         </Button>
       </Link>
-      <Link to={"/login"}>
-        <Button primary small>
+      
+        <Button primary small handleClick={()=>{  localStorage.clear()
+                window.location.href = '/login';
+                }}>
           Log Out
         </Button>
-      </Link>
+     
     </>
   );
 
@@ -97,11 +99,11 @@ const NavElements = ({ token, cart, currentUser: { users } }, ...props) => {
       <NavLink route="/contact" color="#FF8A00" size="20px">
         contact Us
       </NavLink>
-      <Link to={"/login"}>
-        <Button primary small>
+        <Button primary small handleClick={()=>{  localStorage.clear()
+            window.location.href = '/login';
+        }}>
           Log Out
         </Button>
-      </Link>
     </>
   );
   return (
@@ -128,3 +130,4 @@ const NavElements = ({ token, cart, currentUser: { users } }, ...props) => {
 };
 
 export default NavElements;
+
