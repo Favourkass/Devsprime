@@ -6,12 +6,12 @@ display:flex;
 `;
 
 export const Divv = Styled.div`
-padding:100px 90px;
+margin-top:100px;
 background: linear-gradient(70deg, #fff, white);
 `;
 
 export const ImageDiv = Styled.div`
-width:20%;
+margin-top:100px;
 padding:200px 200px;
 background-image: url("https://res.cloudinary.com/devsprime/image/upload/v1624389259/media/contact_us2_phlag3.jpg");
 background-size: cover;
@@ -70,7 +70,6 @@ export const TextArea = Styled.textarea`
 
 `
 export const FormDiv = Styled.div`
-  width: 543px;
   display: flex;
-  justify-content: left;
+  justify-content: center;
 `

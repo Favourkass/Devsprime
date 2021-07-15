@@ -36,7 +36,7 @@ function ContactPage(contact) {
 
         <ImageDiv/>
       </Parent>
-
+    
       <FormDiv className='container'>
       <Formik  
           initialValues = {initialValues}
