@@ -17,6 +17,8 @@ import getCartReducer from "./orderReview.reducer";
 
 import AllCoursesReducer from "./all_courses.reducer";
 import cartReducer from "./cart.reducer";
+import orderReducer from "./orderDashboard.reducer";
+
 import instructorReducer from "./instructor.reducer/index";
 import instructorCoursesReducer from "./instructorCourses.reducer";
 import courseCategoryReducer from "./courseCategory.reducer";
@@ -43,6 +45,7 @@ const rootReducer = combineReducers({
   paymentReducer,
   getCourse: getCourseRudcer,
   all_courses: AllCoursesReducer,
+  order_detail:orderReducer,
   instructor: instructorReducer,
   instructorCourses: instructorCoursesReducer,
   courseType: courseTypeReducer,

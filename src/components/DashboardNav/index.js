@@ -8,7 +8,7 @@ function DashBoardNav(props){
             <MenuWrapper>{props.details}</MenuWrapper>
             <InnerWrapper>
                 <MenuWrapper>{props.category}</MenuWrapper>
-                <MenuWrapper>{props.type}</MenuWrapper>
+                <MenuWrapper>{props.status}</MenuWrapper>
                 <MenuWrapper>{props.instructor}</MenuWrapper>
                 <MenuWrapper>{props.date}</MenuWrapper>
             </InnerWrapper>

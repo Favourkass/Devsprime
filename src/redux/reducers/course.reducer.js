@@ -1,10 +1,7 @@
 import { FETCH_COURSE_FAILURE,FETCH_COURSE_REQUEST,FETCH_COURSE_SUCCESSFUL } from "../actions/types";
 
 const courseState={
-    // token: localStorage.getItem("token"),
-    // data:[],
     errors: "",
-    // message: "",
     loading: false,
     courses:[],
         

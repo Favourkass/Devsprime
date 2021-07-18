@@ -1,11 +1,13 @@
 import ImageComponent from "./image";
 import { Paragraph } from "../typography";
-import { Container } from "./style";
 
-const DashboardDetail = (props) => {
+import React from "react";
+import { MainWrapper, InnerWrapper, MenuWrapper } from "./style";
+
+function DashBoardDetail(props) {
   return (
-    <>
-      <Container>
+    <MainWrapper>
+      <MenuWrapper>
         <div className="img-text">
           <div className="img">
             <ImageComponent image={props.image} alt={props.alt} />
@@ -13,15 +15,19 @@ const DashboardDetail = (props) => {
 
           <Paragraph className="text">{props.detail} </Paragraph>
         </div>
-        <div className="contents">
-          <Paragraph>{props.category} </Paragraph>
-          <Paragraph>{props.status} </Paragraph>
-          <Paragraph>{props.teacher} </Paragraph>
-          <Paragraph>{props.date} </Paragraph>
-        </div>
-      </Container>
-    </>
-  );
-};
+      </MenuWrapper>
 
-export default DashboardDetail;
+      <InnerWrapper>
+        <MenuWrapper>{props.category}</MenuWrapper>
+        <MenuWrapper
+          style={{ color: props.status === "successful" ? "#219653" : "red" }}
+        >
+          {props.status}
+        </MenuWrapper>
+        <MenuWrapper>{props.instructor}</MenuWrapper>
+        <MenuWrapper>{props.date}</MenuWrapper>
+      </InnerWrapper>
+    </MainWrapper>
+  );
+}
+export default DashBoardDetail;

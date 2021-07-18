@@ -25,7 +25,7 @@ test("renders the about component with the name of the company and summary about
       render(<DashboardDetail image="./hakeem" detail="Welcome to decagon" teacher="Charles crook" 
                 status="success" date="20/09/2021"/>, container);
     });
-    expect(container.textContent).toBe("Welcome to decagon  success Charles crook 20/09/2021 ");
+    expect(container.textContent).toBe("Welcome to decagon success20/09/2021");
   
 
   });

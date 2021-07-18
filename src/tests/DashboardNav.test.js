@@ -24,9 +24,9 @@ describe('component rendering', () => {
 describe('<DasgboardNav />', () => {
   test("renders with a props provided", () => {
     act(() => {
-      render(<DashBoardNav details="Course Details" instructor="Teacher" date="Date" category="Category" type="Type" />, container);
+      render(<DashBoardNav details="Course Details" instructor="Type" date="Date" category="Category" type="Type" />, container);
     });
-    expect(container.textContent).toBe("Course DetailsCategoryTypeTeacherDate");
+    expect(container.textContent).toBe("Course DetailsCategoryTypeDate");
   });
 });
 

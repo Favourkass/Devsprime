@@ -24,6 +24,7 @@ import Cart from '../../pages/Cart/index';
 import AboutPage from '../../pages/about/about';
 import CourseOverview from '../../pages/CourseOverview'
 import ErrorPage from '../../pages/errorPage';
+import DashboardOrder from '../../pages/LeanersDashboard/myOrder';
 
 import UploadCourse from '../../pages/UploadCourse';
 
@@ -50,6 +51,7 @@ const App = () => (
         
       <Route exact path='/signup/instructor' component={SignUpInstructor} />
       <Route exact path='/dashboard' component={DashboardCourse} />
+      <Route exact path='/dashboard/order' component={DashboardOrder} />
       <Route exact path='/verify' component={VerifyOtpPage} />
       <Route exact path='/contact' component = {ContactPage}/>
       <Route exact path='/forgot-password' component={ForgotPassword} />
