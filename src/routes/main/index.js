@@ -45,7 +45,7 @@ const App = () => (
         
       <Route exact path='/signup' component={SignUp} />
       <Route exact path='/blogs' component={BlogList} />
-      <Route exact path='/blogdetail/:blogId' component={BlogDetail} />
+      <Route exact path='/blogs/:blogId' component={BlogDetail} />
       <Route exact path='/courses/:course_id' component={CourseOverview} />
         
       <Route exact path='/signup/instructor' component={SignUpInstructor} />
