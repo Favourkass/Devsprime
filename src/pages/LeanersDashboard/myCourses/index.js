@@ -13,7 +13,7 @@ import { fetchUsers } from "../../../redux/actions/userprofile.action";
 import { getCartList } from "../../../redux/actions/cart.action";
 
 
-const courseTypeData = ["Free", "Premium"];
+const courseTypeData = ["Free", "Paid"];
 
 const CourseTypeList = ({ handleOnClick }) => {
   return courseTypeData.map((courseType, index) => (

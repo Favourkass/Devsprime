@@ -2,37 +2,94 @@ import NavBar from "../../components/navbar/NavBarWraper";
 import ProfileDetail from "../../components/InstructorDashboard/ProfileDetail";
 import Courses from "../../components/InstructorDashboard/Courses";
 import { CardContainer } from "../../components/InstructorDashboard/Courses/style";
-import { courses, instructor } from "./data";
 import Footer from "../../components/Footer";
-import FormModal from "./modal/index";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import ButtonContainer from "./style";
+import Button from "../../components/button";
+import { fetchInstructor } from "../../redux/actions/instructor.action";
+import { fetchInstructorCourses } from "../../redux/actions/instructorCourses.action";
 
+const InstructorDashboard = (
+  { currentUser: { users }, token, fetchInstructor, fetchInstructorCourses },
+  ...props
+) => {
+  const [instructorCourses, setInstructorCourses] = useState([]);
+  const [instructorProfile, setInstructorProfile] = useState({});
+  const [instructorName, setInstructorName] = useState("");
+  const [instructorAvatar, setInstructorAvatar] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-const InstructorDashboard = () => {
+  if (users && users.data && users.data.is_learner) {
+    window.location.href = "/dashboard";
+  }
+
+  useEffect(() => {
+    if (!users.data.is_learner) {
+      setIsAuthenticated(true);
+    }
+    setInstructorName(users.data.fullname);
+    setInstructorAvatar(users.data.avatar);
+
+    fetchInstructor(token).then(({ payload: { data } }) => {
+      const { id: instructorID } = data;
+      setInstructorProfile(data);
+      fetchInstructorCourses(token, instructorID).then(
+        ({ payload: { data } }) => {
+          setInstructorCourses(data.courses);
+        }
+      );
+    });
+  }, [users, token, fetchInstructor, fetchInstructorCourses]);
+
   return (
     <>
-      <NavBar />
-      <ProfileDetail 
-        avatar={instructor.avatar}
-        instructorName={instructor.fullname}
-        instructorDescription={instructor.description}
-        facebookLink={instructor.facebook}
-        twitterLink={instructor.twitter}
-        instagramLink={instructor.instagram}
-      />
-      <CardContainer>
-        {courses.map((course) => (
-          <Courses
-            key={course.id}
-            tier={course.type}
-            coverImage={course.cover_img}
-            courseTitle={course.title}
+      {isAuthenticated && (
+        <>
+          <NavBar />
+          <ProfileDetail
+            avatar={instructorAvatar}
+            instructorName={instructorName}
+            instructorDescription={instructorProfile.bio}
+            facebookLink={instructorProfile.facebook}
+            twitterLink={instructorProfile.twitter}
+            instagramLink={instructorProfile.instagram}
           />
-        ))}
-      </CardContainer>
-      <FormModal />
-      <Footer/>
+          <CardContainer>
+            {instructorCourses && instructorCourses.length >= 1 ? (
+              instructorCourses.map((course) => (
+                <Courses
+                  key={course.id}
+                  tier={course.type_id}
+                  coverImage={course.cover_img}
+                  courseTitle={course.title}
+                />
+              ))
+            ) : (
+              <>You have not created courses yet. Get started below</>
+            )}
+          </CardContainer>
+          <ButtonContainer>
+            <Link to="/dashboard/instructor/upload">
+              <Button primary large>
+                Upload a Course
+              </Button>
+            </Link>
+          </ButtonContainer>
+          <Footer />
+        </>
+      )}
     </>
   );
 };
 
-export default InstructorDashboard;
+const mapStateToProps = (store) => ({
+  currentUser: store.user,
+  token: store.login.token,
+});
+
+export default connect(mapStateToProps, {
+  fetchInstructor,
+  fetchInstructorCourses,
+})(InstructorDashboard);

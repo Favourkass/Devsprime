@@ -22,6 +22,9 @@ const ButtonWrapper = styled.button`
     ${({large}) => large && css`
     padding: 20px 115px;
     `}
+    ${({disabled}) => disabled && css`
+    opacity: 0.5;
+    `}
     @media (max-width:768px) {
     padding:15px 30px;
   }

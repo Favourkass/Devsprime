@@ -1,73 +1,60 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
-import Modal from "react-modal";
+import { ToastContainer, toast } from "react-toastify";
 import { Formik } from "formik";
 import validationSchema from "./validation";
 import ErrorMsg from "./errorMessage";
 import {
-  modalStyles,
-  closeButtonStyles,
+  Container,
   FieldStyle,
   Label,
   FormFieldContainer,
   ButtonContainerStyle,
+  ButtonContainer,
 } from "./style";
-import ButtonContainer from "../style";
 import Button from "../../../components/button";
+import { fetchCourseCategory } from "../../../redux/actions/courseCategory.action";
+import { fetchCourseType } from "../../../redux/actions/courseType.action";
+import { uploadCourse } from "../../../redux/actions/courseUpload.action";
 
-Modal.setAppElement(document.getElementById("root"));
+function CourseUploadForm(
+  { token, fetchCourseCategory, fetchCourseType, uploadCourse },
+  ...prop
+) {
+  const [loading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+  const [courseTypes, setCourseTypes] = useState([]);
+  const [courseCategories, setCourseCategories] = useState([]);
 
-function FormModal() {
-  let subtitle;
-  const [modalIsOpen, setIsOpen] = useState(false);
-  const [submit] = useState("Submit");
-  const token = localStorage.getItem("token");
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function afterOpenModal() {
-    subtitle.style.color = "#FF8A00";
-    subtitle.style.textAlign = "center";
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
+  useEffect(() => {
+    fetchCourseCategory(token).then(({ payload: { data } }) => {
+      setCourseCategories(data.course_categories);
+    });
+    fetchCourseType(token).then(({ payload: { data } }) => {
+      setCourseTypes(data.course_types);
+    });
+  }, [token, fetchCourseType, fetchCourseCategory]);
 
   return (
     <div>
-      <ButtonContainer>
-        <Button primary large handleClick={openModal}>
-          Upload a Course
-        </Button>
-      </ButtonContainer>
-
-      <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={modalStyles}
-      >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Upload a Course</h2>
-        <button onClick={closeModal} style={closeButtonStyles}>
-          x
-        </button>
+      <Container>
         <Formik
           initialValues={{
             title: "",
             description: "",
             price: "",
-            type_id: "free",
-            category_id: "design",
+            type_id: "",
+            category_id: "",
             cover_img: "",
             overview: "",
             course_url: [],
           }}
           validationSchema={validationSchema}
           onSubmit={(values) => {
+            setLoading(true);
+            setDisabled(true);
+
             const imageInput = document.querySelector("#coverImage");
             const overviewInput = document.querySelector("#overview");
             const coursesInput = document.querySelector("#courses");
@@ -82,20 +69,32 @@ function FormModal() {
             data.append("category_id", values.category_id);
             data.append("type_id", values.type_id);
 
-            console.log(data);
-
-            const url = "http://localhost:18000/api/v1/courses/upload/";
-            return fetch(url, {
-              method: "POST",
-              headers: new Headers({
-                Authorization: "Token " + token,
-              }),
-              body: data,
-            })
-              .then((response) => response.json())
-              .then((data) => console.log(data))
-              .catch((error) => console.log(error));
+            uploadCourse(token, data).then(({ payload }) => {
+              console.log(payload);
+              setLoading(false);
+              if (payload.message === "success") {
+                toast.success("Uploaded successfully!");
+                setTimeout(() => {
+                  window.location.href = "/dashboard/instructor";
+                }, 3000);
+              } else if (
+                payload.message === "failure" &&
+                payload.errors.invalid
+              ) {
+                toast.error(payload.errors.invalid);
+                setDisabled(false);
+                setTimeout(() => {}, 2000);
+              } else if (
+                payload.message === "failure" &&
+                payload.errors.format_error
+              ) {
+                toast.error(payload.errors.format_error);
+                setDisabled(false);
+                setTimeout(() => {}, 2000);
+              }
+            });
           }}
+
         >
           {({
             values,
@@ -138,8 +137,7 @@ function FormModal() {
 
               <FormFieldContainer>
                 <input
-                  type="number"
-                  step="0.01"
+                  type="text"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.price}
@@ -192,14 +190,12 @@ function FormModal() {
                 <input
                   type="file"
                   onChange={(event) => {
-                    console.log(typeof event.target.files);
                     let files = event.target.files;
                     let list = [];
                     let length = files.length;
                     for (let len = 0; len < length; len++) {
                       list.push(files[len].name);
                     }
-                    console.log(list);
                     setFieldValue("course_url", list);
                   }}
                   onBlur={handleBlur}
@@ -219,16 +215,14 @@ function FormModal() {
                   name="category_id"
                   onChange={handleChange}
                   id="category"
-                  value={values.category_id}
                   style={FieldStyle}
                 >
-                  <option value="design">Design</option>
-                  <option value="art">Art</option>
-                  <option value="music">Music</option>
-                  <option value="dance">Dance</option>
-                  <option value="programming">Programming</option>
-                  <option value="devops">DevOps</option>
-                  <option value="cybersecurity">Cyber Security</option>
+                  <option>{null}</option>
+                  {courseCategories.map((category, idx) => (
+                    <option key={idx} value={category.id}>
+                      {category.name}
+                    </option>
+                  ))}
                 </select>
                 <ErrorMsg>{errors.category_id}</ErrorMsg>
               </FormFieldContainer>
@@ -239,27 +233,42 @@ function FormModal() {
                   name="type_id"
                   onChange={handleChange}
                   id="type"
-                  value={values.type_id}
                   style={FieldStyle}
                 >
-                  <option value="free">Free</option>
-                  <option value="premium">Premium</option>
-                  <option value="paid">Paid</option>
+                  <option>{null}</option>
+                  {courseTypes.map((type, idx) => (
+                    <option key={idx} value={type.id}>
+                      {type.name}
+                    </option>
+                  ))}
                 </select>
                 <ErrorMsg>{errors.type_id}</ErrorMsg>
               </FormFieldContainer>
-
               <ButtonContainer style={ButtonContainerStyle}>
-                <Button primary medium type="submit">
-                  {submit}
+                <Button primary medium type="submit" disabled={disabled}>
+                  {loading ? (
+                    <>
+                      Uploading...This might take a while...{" "}
+                      <i className="fa fa-spinner fa-pulse" />
+                    </>
+                  ) : (
+                    "Submit"
+                  )}
                 </Button>
               </ButtonContainer>
             </form>
           )}
         </Formik>
-      </Modal>
+      </Container>
     </div>
   );
 }
+const mapStateToProps = (store) => ({
+  token: store.login.token,
+});
 
-export default FormModal;
+export default connect(mapStateToProps, {
+  fetchCourseType,
+  fetchCourseCategory,
+  uploadCourse,
+})(CourseUploadForm);

@@ -17,6 +17,12 @@ import getCartReducer from "./orderReview.reducer";
 
 import AllCoursesReducer from "./all_courses.reducer";
 import cartReducer from "./cart.reducer";
+import instructorReducer from "./instructor.reducer/index";
+import instructorCoursesReducer from "./instructorCourses.reducer";
+import courseCategoryReducer from "./courseCategory.reducer";
+import courseTypeReducer from "./courseType.reducer";
+
+import courseUploadReducer from "./courseUpload.reducer";
 
 const persistConfig = {
   key: "devsprime",
@@ -37,6 +43,11 @@ const rootReducer = combineReducers({
   paymentReducer,
   getCourse: getCourseRudcer,
   all_courses: AllCoursesReducer,
+  instructor: instructorReducer,
+  instructorCourses: instructorCoursesReducer,
+  courseType: courseTypeReducer,
+  courseCategory: courseCategoryReducer,
+  courseUpload: courseUploadReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);

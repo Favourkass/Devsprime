@@ -16,6 +16,7 @@ import BlogDetail from '../../pages/blogDetail/BlogDetail';
 
 import SignUpInstructor from '../../pages/signupInstructor';
 import VerifyOtpPage from '../../pages/VerifyOtpPage';
+import ProtectedRoute from '../protectedRoute';
 import ReviewOrder from '../../pages/review/review';
 import ContactPage from '../../pages/contact/ContactPage';
 import Cart from '../../pages/Cart/index';
@@ -24,6 +25,7 @@ import AboutPage from '../../pages/about/about';
 import CourseOverview from '../../pages/CourseOverview'
 import ErrorPage from '../../pages/errorPage';
 
+import UploadCourse from '../../pages/UploadCourse';
 
 
 const App = () => (
@@ -33,10 +35,12 @@ const App = () => (
     </div>
   }>
     <Switch>
+      <ProtectedRoute exact path='/dashboard/instructor' component={InstructorDashboard} />
+      <ProtectedRoute exact path='/dashboard/instructor/upload' component={UploadCourse} />
       <Route exact path='/review/:cartId' component={ReviewOrder}/>
       <Route exact path='/' component={LandingPage} />
       <Route exact path='/login' component={Login}/>
-      <Route exact path='/dashboard/instructor' component={InstructorDashboard} />
+     
       <Route exact path='/payment/:course_id' component={PaymentPage} />
         
       <Route exact path='/signup' component={SignUp} />

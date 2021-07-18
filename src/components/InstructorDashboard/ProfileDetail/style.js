@@ -28,6 +28,9 @@ const SocialMediaLinks = styled.div`
   width: 100px;
   display: flex;
   justify-content: space-between;
+  a{
+    cursor: pointer;
+  }
 `;
 
 export { Container, ProfileImage, InstructorName, InstructorDescription, SocialMediaLinks}
