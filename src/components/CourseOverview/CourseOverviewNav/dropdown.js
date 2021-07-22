@@ -4,17 +4,13 @@ import { SubHeader } from "../../typography";
 import { Container, LessonLink, ModuleWrapper, NavBtn } from "./dropdownStyle";
 import { Link } from "react-router-dom";
 
-const CourseDropDown = ({ title, course_url, playLesson, type }) => {
+const CourseDropDown = ({ title, courseVideos, playLesson, type }) => {
   const [active, setActive] = useState(true);
 
   function handleActive() {
     setActive(!active);
   }
 
-  const course_data = Object.keys(course_url).map((course) => ({
-    course_name: course,
-    course_link: course_url[course],
-  }));
   return (
     <>
       <NavBtn onClick={handleActive}>
@@ -24,26 +20,26 @@ const CourseDropDown = ({ title, course_url, playLesson, type }) => {
       <Container active={active}>
         <ModuleWrapper>
           <SubHeader>{title}</SubHeader>
-          {type === "Free" || type === "free" ? (
-            <>
-              {course_data && course_data.length > 0 ? (
-                course_data.map((lessons, i) => {
+          { courseVideos !== [] || (type === "Free" || type === "free") ? (
+            <ul>
+              {courseVideos && courseVideos.length > 0 ? (
+                courseVideos.map((video, i) => {
                   return (
-                    <>
+                    <li>
                       <Link
                         to=""
-                        onClick={() => playLesson(`${lessons.course_link}`)}
+                        onClick={() => playLesson(`${video.video_url}`)}
                         key={i}
                       >
-                        <LessonLink>{lessons.course_name}</LessonLink>
+                        <LessonLink>{video.name}</LessonLink>
                       </Link>
-                    </>
+                    </li>
                   );
                 })
               ) : (
-                <>loading courses..</>
+                <>Pay for the course</>
               )}
-            </>
+            </ul>
           ) : (
             <>pay for this course</>
           )}

@@ -25,6 +25,7 @@ import courseCategoryReducer from "./courseCategory.reducer";
 import courseTypeReducer from "./courseType.reducer";
 
 import courseUploadReducer from "./courseUpload.reducer";
+import courseVideoReducer from "./courseVideo.reducer";
 
 const persistConfig = {
   key: "devsprime",
@@ -51,6 +52,7 @@ const rootReducer = combineReducers({
   courseType: courseTypeReducer,
   courseCategory: courseCategoryReducer,
   courseUpload: courseUploadReducer,
+  courseVideo: courseVideoReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);

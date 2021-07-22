@@ -13,11 +13,16 @@ import {
   getAllCourses,
 } from "../../redux/actions/courseOverview.action";
 
+import { getCourseVideo } from "../../redux/actions/courseVideo.action";
+
+
 const CourseOverview = ({
   getCourse: { course },
   getCoursesDetail,
   getAllCourses,
   allCourses,
+  getCourseVideo,
+  courseVideo,
   token,
   history,
   match,
@@ -25,7 +30,8 @@ const CourseOverview = ({
   useEffect(() => {
     getCoursesDetail(match.params.course_id);
     getAllCourses();
-  }, [getCoursesDetail, match.params.course_id, getAllCourses]);
+    getCourseVideo({token:token, course_id:match.params.course_id})
+  }, [getCoursesDetail, match.params.course_id, getAllCourses, getCourseVideo, token]);
 
   return (
     <>
@@ -40,7 +46,7 @@ const CourseOverview = ({
           <VideoPlayer
             url={course.overview}
             title={course.title}
-            course_url={course.course_url}
+            courseVideos={courseVideo.videos}
             type={course.type}
           />
           <CourseNav />
@@ -71,9 +77,11 @@ const mapStateToProps = (store) => ({
   getCourse: store.getCourse.getCourse,
   allCourses: store.getCourse.allCourses,
   token: store.login.token,
+  courseVideo: store.courseVideo,
 });
 
 export default connect(mapStateToProps, {
   getCoursesDetail,
   getAllCourses,
+  getCourseVideo,
 })(CourseOverview);

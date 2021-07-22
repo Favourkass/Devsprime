@@ -3,7 +3,7 @@ import {VideoPlayerWrapper} from './style';
 import ReactPlayer from 'react-player';
 import CourseDropDown from '../CourseOverviewNav/dropdown'
 
-const VideoPlayer = ({url, title, course_url,type}) => {
+const VideoPlayer = ({url, title, courseVideos,type}) => {
     const [lesson, setLesson]= useState(url)
     const playLesson=(url)=>{
         setLesson(url)
@@ -15,9 +15,8 @@ const VideoPlayer = ({url, title, course_url,type}) => {
             <CourseDropDown 
             type={type}
             title={title} 
-            course_url={course_url} 
+            courseVideos={courseVideos} 
             playLesson={playLesson}
-                
             />
         </VideoPlayerWrapper>
     )
