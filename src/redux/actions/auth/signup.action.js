@@ -14,7 +14,7 @@ const signupFailed = (payload) => ({
 
 const signup = (payload) => async (dispatch) => {
   try {
-    const res = await request.post("/auth/register/", payload);
+    const res = await request.post("/auth/register/instructor/", payload);
     return dispatch(signupSuccess(res));
   } catch (error) {
     const err = retrieveErrMessage(error);
