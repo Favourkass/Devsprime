@@ -11,9 +11,8 @@ background: linear-gradient(70deg, #fff, white);
 `;
 
 export const ImageDiv = Styled.div`
-margin-top:100px;
 padding:200px 200px;
-background-image: url("https://res.cloudinary.com/devsprime/image/upload/v1624389259/media/contact_us2_phlag3.jpg");
+background-image: url("https://res.cloudinary.com/devsprime/image/upload/v1626340616/media/About-usnkhwu8kpliplc6tgexyd-removebg-preview_dgwhaa.png");
 background-size: cover;
 box-shadow: 0 0 10px 8px white inset;
 background-blend-mode: lighten;
