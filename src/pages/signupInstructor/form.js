@@ -7,7 +7,7 @@ import Button from "../../components/button";
 
 import ErrorMsg from "./errorMessage";
 import validate from "./validate";
-import signup from "../../redux/actions/auth/signup.action";
+import signup from "../../redux/actions/auth/signupInstructor.action";
 import { toast, ToastContainer } from "react-toastify";
 import SmallText from "./smallText";
 import ClipLoader from "react-spinners/ClipLoader";
