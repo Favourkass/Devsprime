@@ -100,7 +100,7 @@ const FormDiv = ({ signup, signupData }) => {
 };
 
 const mapStateToProps = (store) => ({
-  signupData: store.signup,
+  signupData: store.signupInstructor,
 });
 
 export default connect(mapStateToProps, { signup })(FormDiv);
