@@ -9,7 +9,7 @@ const NavBar = ({ token, currentUser, cart }) => {
   return (
     <Nav>
       <div className="nav-items">
-        <Link to={`/`}>
+        <Link className="link" to={`/`}>
           <Logo />
         </Link>
         <NavElements

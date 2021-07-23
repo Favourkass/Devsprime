@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { black } from '../../colour/colour'
 
 export const Nav = styled.nav`
     position: sticky;
@@ -15,6 +16,10 @@ export const Nav = styled.nav`
         display: flex;
         justify-content: space-around;
         align-items: center;
+        .link{
+            text-decoration: none;
+            color: ${black};
+        }
 
     }
     
