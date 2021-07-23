@@ -20,7 +20,6 @@ const CourseDropDown = ({ title, courseVideos, playLesson, type }) => {
       <Container active={active}>
         <ModuleWrapper>
           <SubHeader>{title}</SubHeader>
-          { courseVideos !== [] || (type === "Free" || type === "free") ? (
             <ul>
               {courseVideos && courseVideos.length > 0 ? (
                 courseVideos.map((video, i) => {
@@ -37,12 +36,9 @@ const CourseDropDown = ({ title, courseVideos, playLesson, type }) => {
                   );
                 })
               ) : (
-                <>Pay for the course</>
+                <>No course video available</>
               )}
             </ul>
-          ) : (
-            <>pay for this course</>
-          )}
         </ModuleWrapper>
       </Container>
     </>

@@ -6,8 +6,8 @@ export const Container = styled.div`
     position:absolute;
     top:60%;
     right:10%;
-    width:187px;
-    height:70vh;
+    width: 250px;
+    height:60vh;
     background: #FFFFFF;
     border-radius: 10px;
     overflow:scroll;
@@ -21,8 +21,18 @@ export const ModuleWrapper = styled.div`
     justify-content:center;
     flex-direction:column;
     align-items:center;
-    overflow:scroll;
     height:auto;
+
+    .video-cont{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: .7rem;
+        border-bottom: .5px solid grey;
+        padding: .5rem;
+        border-radius: 5px;
+    }
     
 `
 

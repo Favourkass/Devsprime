@@ -1,4 +1,4 @@
-import request, { headers } from "../../../request";
+import request from "../../../request";
 import { retrieveErrMessage } from "../../../utils/helper";
 
 import {
@@ -11,8 +11,8 @@ import {
 export const getCourseVideo = (payload) => async (dispatch) => {
   getCourseVideoStart()
   try {
-    const {course_id, token} = payload
-    const res = await request.get(`/courses/${course_id}/videos/`, headers(token))
+    const {courseId} = payload
+    const res = await request.get(`/courses/${courseId}/videos/`)
     const {data: {data}} = res
     return dispatch(getCourseVideoSuccess(data))
   } catch (error) {
