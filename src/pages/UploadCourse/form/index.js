@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import Fragment, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -12,6 +12,7 @@ import {
   FormFieldContainer,
   ButtonContainerStyle,
   ButtonContainer,
+  VideoFieldStyle,
 } from "./style";
 import Button from "../../../components/button";
 import { fetchCourseCategory } from "../../../redux/actions/courseCategory.action";
@@ -26,6 +27,7 @@ function CourseUploadForm(
   const [disabled, setDisabled] = useState(false);
   const [courseTypes, setCourseTypes] = useState([]);
   const [courseCategories, setCourseCategories] = useState([]);
+  const [courseVideos, setCourseVideos] = useState([]);
 
   useEffect(() => {
     fetchCourseCategory(token).then(({ payload: { data } }) => {
@@ -54,23 +56,23 @@ function CourseUploadForm(
           onSubmit={(values) => {
             setLoading(true);
             setDisabled(true);
-
+            console.log(values);
             const imageInput = document.querySelector("#coverImage");
             const overviewInput = document.querySelector("#overview");
-            const coursesInput = document.querySelector("#courses");
-
             let data = new FormData();
             data.append("title", values.title);
             data.append("description", values.description);
             data.append("price", values.price);
             data.append("cover_img", imageInput.files[0]);
             data.append("overview", overviewInput.files[0]);
-            data.append("course_url", coursesInput.files[0]);
+            for (let i = 0; i < courseVideos.length; i++) {
+              data.append("course_url", courseVideos[i]);
+              console.log("video", courseVideos[i].name, courseVideos[i]);
+            }
             data.append("category_id", values.category_id);
             data.append("type_id", values.type_id);
 
             uploadCourse(token, data).then(({ payload }) => {
-              console.log(payload);
               setLoading(false);
               if (payload.message === "success") {
                 toast.success("Uploaded successfully!");
@@ -91,10 +93,12 @@ function CourseUploadForm(
                 toast.error(payload.errors.format_error);
                 setDisabled(false);
                 setTimeout(() => {}, 2000);
+              } else {
+                setDisabled(false);
+                toast.error("Invalid format for course videos! Try again");
               }
             });
           }}
-
         >
           {({
             values,
@@ -119,7 +123,6 @@ function CourseUploadForm(
                 />
                 <ErrorMsg>{errors.title}</ErrorMsg>
               </FormFieldContainer>
-
               <FormFieldContainer>
                 <textarea
                   type="textarea"
@@ -134,7 +137,6 @@ function CourseUploadForm(
                 />
                 <ErrorMsg>{errors.description}</ErrorMsg>
               </FormFieldContainer>
-
               <FormFieldContainer>
                 <input
                   type="text"
@@ -167,7 +169,6 @@ function CourseUploadForm(
                 />
                 <ErrorMsg>{errors.cover_img}</ErrorMsg>
               </FormFieldContainer>
-
               <FormFieldContainer>
                 <Label htmlFor="overview">Course Overview</Label>
                 <input
@@ -184,31 +185,6 @@ function CourseUploadForm(
                 />
                 <ErrorMsg>{errors.overview}</ErrorMsg>
               </FormFieldContainer>
-
-              <FormFieldContainer>
-                <Label htmlFor="courses">Course Videos</Label>
-                <input
-                  type="file"
-                  onChange={(event) => {
-                    let files = event.target.files;
-                    let list = [];
-                    let length = files.length;
-                    for (let len = 0; len < length; len++) {
-                      list.push(files[len].name);
-                    }
-                    setFieldValue("course_url", list);
-                  }}
-                  onBlur={handleBlur}
-                  id="courses"
-                  name="course_url"
-                  accept="video/*"
-                  multiple
-                  required
-                  style={FieldStyle}
-                />
-                <ErrorMsg>{errors.course_url}</ErrorMsg>
-              </FormFieldContainer>
-
               <FormFieldContainer>
                 <Label htmlFor="category">Course Category</Label>
                 <select
@@ -226,7 +202,6 @@ function CourseUploadForm(
                 </select>
                 <ErrorMsg>{errors.category_id}</ErrorMsg>
               </FormFieldContainer>
-
               <FormFieldContainer>
                 <Label htmlFor="type">Course Type</Label>
                 <select
@@ -244,6 +219,57 @@ function CourseUploadForm(
                 </select>
                 <ErrorMsg>{errors.type_id}</ErrorMsg>
               </FormFieldContainer>
+
+              <FormFieldContainer>
+                <label
+                  htmlFor="courses"
+                  style={{ ...FieldStyle, cursor: "pointer" }}
+                >
+                  Choose Files
+                  <span style={{ marginLeft: "40px" }}>
+                    {courseVideos.length} files
+                  </span>
+                  <input
+                    id="courses"
+                    type="file"
+                    accept="video/*"
+                    required
+                    style={{ display: "none" }}
+                    multiple
+                    name="course_url"
+                    onChange={(event) => {
+                      let files = Array.from(event.target.files);
+                      let list = [];
+                      for (let i = 0; i < files.length; i++) {
+                        if (!courseVideos.includes(files[i].name)) {
+                          list.push(files[i]);
+                        }
+                      }
+                      setCourseVideos([...courseVideos, ...list]);
+                    }}
+                  />
+                </label>
+                <ErrorMsg>{errors.course_url}</ErrorMsg>
+                {courseVideos.map((video, index) => (
+                  <div style={VideoFieldStyle} key={index}>
+                    <span key={index}>{video.name}</span>
+                    <span>
+                      <button
+                        type="button"
+                        style={{ cursor: "pointer" }}
+                        onClick={() => {
+                          const oldVids = [...courseVideos];
+                          oldVids.splice(index, 1);
+                          setCourseVideos(oldVids);
+                        }}
+                      >
+                        x
+                      </button>
+                    </span>
+                  </div>
+                ))}
+              </FormFieldContainer>
+
               <ButtonContainer style={ButtonContainerStyle}>
                 <Button primary medium type="submit" disabled={disabled}>
                   {loading ? (

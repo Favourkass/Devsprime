@@ -58,13 +58,15 @@ const InstructorDashboard = (
           />
           <CardContainer>
             {instructorCourses && instructorCourses.length >= 1 ? (
-              instructorCourses.map((course) => (
-                <Courses
-                  key={course.id}
-                  tier={course.type_id}
-                  coverImage={course.cover_img}
-                  courseTitle={course.title}
-                />
+              instructorCourses.map((course, index) => (
+                <Link to="/edit-course" key={index}>
+                  <Courses
+                    key={index}
+                    tier={course.type_id}
+                    coverImage={course.cover_img}
+                    courseTitle={course.title}
+                  />
+                </Link>
               ))
             ) : (
               <>You have not created courses yet. Get started below</>
