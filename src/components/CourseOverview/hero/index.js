@@ -29,21 +29,22 @@ const CourseOverviewHero = ({
 }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [successModalIsOpen, setSuccessModalIsOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [failureModalIsOpen, setFailureModalIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false)
 
-  function openModal() {
+  const openModal = () => {
     setIsOpen(true);
   }
 
-  function closeModal() {
+  const closeModal = () => {
     setIsOpen(false);
   }
 
-  function openSuccessModal() {
+  const openSuccessModal = () => {
     setSuccessModalIsOpen(true);
   }
 
-  function closeSuccessModal() {
+  const closeSuccessModal = () => {
     setSuccessModalIsOpen(false);
   }
 
@@ -51,25 +52,46 @@ const CourseOverviewHero = ({
   const handleGoToCourse = () => (window.location = "/courses");
 
   const payload = { token: token, courseId: course_id };
+
+  const openFailureModal = () => {
+    setFailureModalIsOpen(true);
+  }
+  
+  const closeFailureModal = () => {
+    setFailureModalIsOpen(false);
+  }
+
   const handleAddToCart = async () => {
     setIsLoading(true);
     if (!payload.token) {
       window.location = "/login";
       return;
     }
-    await addToCart(payload);
-    if (cart.error) {
-      setIsLoading(false);
-      return;
-    } else {
-      setTimeout(() => {
-        closeModal();
-        openSuccessModal();
+
+    let AlreadyExist = cart.cart.some( course => course.course_id === payload.courseId )
+
+    if(AlreadyExist){
+      setIsLoading(false)
+      setTimeout(()=>{
+        closeModal()
+        openFailureModal()
         return;
-      }, 2000);
+      }, 2000)
+    } else{
+      await addToCart(payload)
+      if (cart.error) {
+        setIsLoading(false)
+        return;
+      }else{
+        setTimeout(() => {
+            closeModal()
+            openSuccessModal()
+            return;
+        }, 2000);
+      }
+      return;
     }
-    return;
-  };
+  }
 
   return (
     <HeroWrapper>
@@ -120,6 +142,25 @@ const CourseOverviewHero = ({
           handleLeftButton={handleGoToCart}
         />
       </Modal>
+
+{/* Failure Modal */}
+      <Modal
+        isOpen={failureModalIsOpen}
+        onRequestClose={closeFailureModal}
+        style={customStyles}
+      >
+        <ModalCard 
+          title='Error'
+          contentBody={`Can't Add Course: You've already added this course `}
+          background={'#FF0F0F'}
+          leftButton={'checkout Cart'}
+          rightButton={'Go To Course'}
+          handleClose={closeFailureModal}
+          handleRightButton={handleGoToCourse}
+          handleLeftButton={handleGoToCart}
+        />
+      </Modal>
+
     </HeroWrapper>
   );
 };

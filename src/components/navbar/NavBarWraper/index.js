@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 const NavBar = ({ token, currentUser, cart }) => {
+
   return (
     <Nav>
       <div className="nav-items">

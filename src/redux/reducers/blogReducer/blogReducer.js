@@ -14,7 +14,6 @@ export const showBlogsReducer = (state = intialState, { type, payload }) => {
 };
 
 export const blogDetailReducer = (state = {}, { type, payload }) => {
-  console.log(type);
   switch (type) {
     case ActionTypes.BLOG_DETAIL:
       return { ...state, ...payload };
@@ -24,7 +23,6 @@ export const blogDetailReducer = (state = {}, { type, payload }) => {
 };
 
 export const blogCommentsReducer = (state = {}, { type, payload }) => {
-  console.log(type);
   switch (type) {
     case ActionTypes.BLOG_COMMENTS:
       return { ...state, ...payload };
@@ -35,7 +33,6 @@ export const blogCommentsReducer = (state = {}, { type, payload }) => {
 
 
 export const removeSelectedBlogReducer = (state = {}, { type, payload }) => {
-  console.log(type);
   switch (type) {
     case ActionTypes.BLOG_DETAIL:
       return { ...state, ...payload };

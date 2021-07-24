@@ -65,7 +65,7 @@ const NavElements = ({ token, cart, currentUser: { users } }, ...props) => {
         contact Us
       </NavLink>
       <NavLink route="/cart">
-        <CartNotification number={cart.cartTotal} />
+        <CartNotification number={cart.cart.length} />
       </NavLink>
       <Link to={`/signup/instructor`}>
         <Button primary small>

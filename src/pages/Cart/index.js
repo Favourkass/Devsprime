@@ -8,7 +8,7 @@ import { getCartList, removeCart } from "../../redux/actions/cart.action";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import moment from "moment";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { SubHeader } from "../../components/typography";
 
@@ -16,11 +16,9 @@ const Cart = ({ getCartList, cartItems, removeCart }) => {
   const payload = localStorage.getItem("token");
 
   const handleDelete = (payload, id) => {
-    if (window.confirm("Are you sure you want to remove this item ?")) {
       removeCart(payload, id);
       toast.warn("Cart Item Removed");
       getCartList(payload);
-    }
   };
   useEffect(() => getCartList(payload), [getCartList, payload]);
 
