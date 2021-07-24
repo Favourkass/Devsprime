@@ -13,7 +13,7 @@ import { fetchUsers } from "../../../redux/actions/userprofile.action";
 import { getCartList } from "../../../redux/actions/cart.action";
 
 
-const courseTypeData = ["Free", "Paid"];
+const courseTypeData = ["All","Free", "Paid"];
 
 const CourseTypeList = ({ handleOnClick }) => {
   return courseTypeData.map((courseType, index) => (
@@ -33,12 +33,14 @@ const CourseTypeList = ({ handleOnClick }) => {
 };
 
 const Course = ({ courseData, fetchCourses, userData, history }) => {
-  const [type, setType] = useState("Free");
+  const [type, setType] = useState(false);
 
   const handleOnClick = (e) => {
+    if (e.target.getAttribute("data-value")==="All" ){
+      setType(false);
+    }else
     setType(e.target.getAttribute("data-value"));
   };
-
   const pageController = () => {
     if (userData && !userData.is_learner) {
       return (window.location = "/login");

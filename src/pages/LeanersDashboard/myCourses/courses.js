@@ -15,7 +15,7 @@ const Courses = ({ courseData, type }) => {
     <>
       {courseData && courseData.courses.length > 0 ? (
         courseData.courses.map((item, idx) => {
-          if (item.course_type.toLowerCase() === coursetype.toLowerCase()) {
+          if (coursetype && item.course_type.toLowerCase() === coursetype.toLowerCase()) {
             return (
               <Link key={idx} to={`courses/${item.id}`}>
                 <CourseStyle>
@@ -27,7 +27,21 @@ const Courses = ({ courseData, type }) => {
                 </CourseStyle>
               </Link>
             );
-          } else {
+          }else if (!coursetype){
+            return(
+              <Link key={idx} to={`courses/${item.id}`}>
+              <CourseStyle>
+                <CourseCard
+                  image={item.cover_img}
+                  tier={item.course_type}
+                  title={item.title}
+                />
+              </CourseStyle>
+            </Link>
+            )
+          }
+          
+          else {
             return "";
           }
         })
