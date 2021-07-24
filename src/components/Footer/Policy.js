@@ -1,6 +1,6 @@
 const Policy = (props) => {
     return (  
-        <div className="policy container">
+        <div className="policy container" style={{ padding: "15px" }}>
             <div className="right">
                 <strong><p>All Rights Reserved | DEVSPRIME 2021 </p></strong>
             </div>

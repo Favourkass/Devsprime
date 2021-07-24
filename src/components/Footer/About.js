@@ -1,12 +1,13 @@
+import { Link } from 'react-router-dom';
 import Logo from "../logo";
 
 
 const About = (props) => {
     return (  
         <div className="about">    
-            <div className="logo">
-            <Logo/>
-            </div>
+            <Link to="/">
+                <div className="logo"><Logo /></div>
+            </Link>
             <div className="summary">Devsprime is an online education platform that delivers video courses,programs and undending blog updates.</div>     
         
             <div className="icons">
