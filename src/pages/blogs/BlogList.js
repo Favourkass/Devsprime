@@ -7,8 +7,6 @@ import request from "../../request"
 import React, { useEffect} from "react";
 import { useDispatch} from "react-redux";
 import { setBlog } from "../../redux/actions/blogActions/blogAction";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const BlogList = () => {
   const dispatch = useDispatch();
@@ -18,7 +16,6 @@ const BlogList = () => {
       .then(response=>dispatch(setBlog(response.data)))
       .catch((err) => {
         console.log("Err: ", err);
-        toast("Please Check your internet!");
       });
     
   };
@@ -33,7 +30,6 @@ const BlogList = () => {
     <>
       <NavBar />
       <Hero  />
-      <ToastContainer />
       <BlogCard  />
       <Footer />
     </>

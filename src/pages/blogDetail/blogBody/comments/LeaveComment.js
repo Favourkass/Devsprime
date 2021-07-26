@@ -37,12 +37,11 @@ const handleSubmit = async event => {
         "comment": comment,
         }, headers(token));
       if (response.data.message === "success") {
-        toast.success("Your comment has been sent successfully")
         setSubmit('Comment sent')
         
       }
     } catch (err) {
-      toast.error("Could not sent your comment, Please try again, it's entirely our fault")
+      toast.warn("Only logged in users are allowed to comment")
       setSubmit('Proceed')
     }
 
@@ -56,7 +55,7 @@ const handleSubmit = async event => {
 return (
         <LeaveCommentContainer className="container">
           <SubHeader children="Leave a Comment" color="black" />
-          <Paragraph children="Your email address will not be published. Required fields are marked " />
+          <Paragraph children="Your email address will not be published" />
 
           <form onSubmit={handleSubmit}>
             {user.data === undefined ? (
@@ -77,6 +76,9 @@ return (
                   onChange={handleChange}
                   value={comment}
                   placeholder="write your comment here"
+                  
+                  rows="4" 
+                  columns="50"
                 />
                 <Button
               type="submit"

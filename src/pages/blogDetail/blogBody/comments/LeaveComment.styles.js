@@ -19,6 +19,7 @@ margin-bottom: 50px;
     font-size: 14px;
     line-height: 17px;
     color: #5C5C5C;
+    resize: none;
   }
 `
 

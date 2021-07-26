@@ -36,3 +36,9 @@
 .paginationDisabled a:hover{
   background: grey;
 }
+.no-blog{
+  width: auto;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}

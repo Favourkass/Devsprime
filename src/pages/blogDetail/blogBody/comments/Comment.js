@@ -4,8 +4,10 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { blogComments } from "../../../../redux/actions/blogActions/blogAction";
-import Reply from "./Reply";
+// import Reply from "./Reply";
 import request from "../../../../request";
+import dateConverter from "../../../blogs/blogcard/dateConverter"
+
 
 const CommentThread = () => {
   const { blogId } = useParams();
@@ -23,7 +25,7 @@ const CommentThread = () => {
   useEffect(() => {
     fetchComment(blogId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [fetchComment]);
 
   return (
     <>
@@ -42,13 +44,13 @@ const CommentThread = () => {
                   <li>
                     <p>{comment.comment}</p>
                     <p>
-                      {comment.created_at}
+                      {dateConverter(comment.created_at)}
                       <span>
                         {" "}
                         <b>Reply</b>
                       </span>
                     </p>
-                    <Reply />
+                    {/* <Reply /> */}
                   </li>
                 </ul>
               </div>

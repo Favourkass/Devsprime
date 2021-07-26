@@ -16,6 +16,7 @@ import { blogDetail } from "../../../redux/actions/blogActions/blogAction";
 import Hero from "../blogHero/index";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import dateConverter from "../../blogs/blogcard/dateConverter";
 
 const BlogBody = () => {
   const { blogId } = useParams();
@@ -34,8 +35,7 @@ const BlogBody = () => {
 
   useEffect(() => {
     fetchBlogDetail(blogId);
-// eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  });
 
   return (
     <div>
@@ -46,7 +46,7 @@ const BlogBody = () => {
         <>
           <Hero
             Header={blog.data.blog.title}
-            Author={blog.data.blog.created_at}
+            Author={dateConverter(blog.data.blog.created_at)+"-by "+ blog.data.blog.fullname}
             blogImage={blog.data.blog.cover_img}
           />
           <BlogBodyStyle>
