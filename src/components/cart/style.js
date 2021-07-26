@@ -48,6 +48,7 @@ border-bottom: solid 1px #E5E5E5;
 export const SectionDiv = styled.div`
 margin-left: 10px;
 margin-top: 10px;
+text-align:justify
 
 `
 export const ImageParagraphDiv = styled.div`

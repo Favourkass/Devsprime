@@ -6,7 +6,7 @@ import {
   EntireWrapper,
   TitleParagraph,
   BackToCart,
-  TitlePicture,
+  // TitlePicture,
   TitleDiv,
 } from "./style";
 import { getCardByCourseId } from "../../redux/actions/orderReview.action";
@@ -31,8 +31,8 @@ function ReviewOrder({ getCardByCourseId, cartById, match }) {
         </a>
         <EntireWrapper>
           <TitleDiv>
-            <TitleParagraph>Select Your Delivery Information</TitleParagraph>
-            <TitlePicture src="https://res.cloudinary.com/devsprime/image/upload/v1625432818/Icons%20and%20Logo/Progress_sgliml.png" />
+            <TitleParagraph> Your Product Details</TitleParagraph>
+            {/* <TitlePicture src="https://res.cloudinary.com/devsprime/image/upload/v1625432818/Icons%20and%20Logo/Progress_sgliml.png" /> */}
           </TitleDiv>
           <Cart
             image={cartById.cartData.cover_img}
