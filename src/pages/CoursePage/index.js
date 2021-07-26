@@ -19,14 +19,31 @@ const CoursePage = ({ courseData, fetchCourses, history}) => {
     useEffect(fetchCourses, [fetchCourses])
 
     let [typeId, setTypeId] = useState('')
+    let [searchField, setSearchField] = useState('')
 
     const handleClick = (e) => {
         setTypeId(e.target.name)
     }
 
+    const handleChange = (e) => {
+        setSearchField(e.target.value)
+    }
+
     let filteredCourses = typeId ? courseData.filter((course) => {
         return course.type_id.toLowerCase() === typeId.toLowerCase()
     }): courseData
+
+    let searchedCourses = filteredCourses.filter((course) => {
+        return course.title.toLowerCase().includes(searchField.toLowerCase())
+    })
+    
+    let showCourses = () => {
+        if(searchField){
+            return searchedCourses
+        } else {
+            return filteredCourses
+        }
+    }
 
     return (
     <>
@@ -36,11 +53,14 @@ const CoursePage = ({ courseData, fetchCourses, history}) => {
             <BodyContainer >
                 <Search 
                     placeholder="Search for Courses i.e web-development"
+                    type="search"
+                    onChange = { handleChange }
+                    value={ searchField }
                 />
                 <CourseBodyMainContainer >
                     <CourseView className="courseview">
                         <CourseHeader className="courseheader"/>
-                        <CoursesContainer className="coursecontainer" courses={filteredCourses} path={history.location.pathname}/>
+                        <CoursesContainer className="coursecontainer" courses={showCourses()} path={history.location.pathname}/>
                     </CourseView>
                     <CourseSort className="coursesort">
                         <AllCourses courseCategories={ CourseCategories }/>

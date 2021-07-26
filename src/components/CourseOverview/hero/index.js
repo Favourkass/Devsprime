@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { HeroWrapper, ButtonWrapper, Text } from "./style";
 import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import { connect } from "react-redux";
 import { addToCart } from "../../../redux/actions/cart.action";
 import Modal from "react-modal";
@@ -64,7 +65,10 @@ const CourseOverviewHero = ({
   const handleAddToCart = async () => {
     setIsLoading(true);
     if (!payload.token) {
-      window.location = "/login";
+      toast.warning("Please login");
+      setTimeout(() => {
+        window.location = "/login";
+      }, 1500)
       return;
     }
 
@@ -95,6 +99,7 @@ const CourseOverviewHero = ({
 
   return (
     <HeroWrapper>
+      <ToastContainer/>
       <Text>
         You can either enroll for this course to gain access and also to the
         materials been attached to it online only or you can add to cart for
