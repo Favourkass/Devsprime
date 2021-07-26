@@ -12,7 +12,7 @@ const Icon = styled.div`
 
 const Card = styled.div`
     box-sizing:border-box;
-    width:204px;
+    width:120px;
     display:${props => props.active ? 'flex' : 'none'};
     justify-content:center;
     flex-direction:column;
@@ -20,8 +20,9 @@ const Card = styled.div`
     background:#fff;
     box-shadow: 0 5px 15px rgba(0,0,0,.2);
     overflow:hidden;
-    position:relative;
-    margin-top:10px;
+    position:absolute;
+
+    /* margin-top:10px; */
 `
 
 const UserImageWrapper = styled.div`
@@ -48,7 +49,7 @@ const LinkElement = styled.a`
 `
 
 const DropArrowWrapper = styled.div`
-    width:20px;
+    width:15px;
     height:20px;
     position:absolute;
     right:5px;
@@ -59,7 +60,8 @@ const DropArrowWrapper = styled.div`
 `
 
 const Image = styled.img`
-    width:100%
+    width:90%;
+    border-radius: 100%;
 `
 
 export { Icon, Card, UserImageWrapper, LinkElement, DropArrowWrapper, Image }

@@ -5,6 +5,7 @@ import NavLink from "../NavLinks/index";
 import Button from "../../button/index";
 import CartNotification from "../../CartNotification/CartNotification";
 import { Link } from "react-router-dom";
+import UserDropDown from "../../userDropDown";
 
 const NavElements = ({ token, cart, currentUser: { users } }, ...props) => {
   const [active, setActive] = useState(false);
@@ -67,12 +68,8 @@ const NavElements = ({ token, cart, currentUser: { users } }, ...props) => {
       <NavLink route="/cart">
         <CartNotification number={cart.cart.length} />
       </NavLink>
-      <Link to={`/signup/instructor`}>
-        <Button primary small>
-          Become a Contributor
-        </Button>
-      </Link>
       
+      <UserDropDown imgSrc={users.data.avatar}/>
         <Button primary small handleClick={()=>{  localStorage.clear()
                 window.location.href = '/login';
                 }}>

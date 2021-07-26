@@ -4,22 +4,19 @@ import { Card } from '../style'
 
 
 const DropDownCard = (props)=>{
-    const [dropLink, setDropLink] = useState([
+    const [dropLink] = useState([
                  {
                     name:'Courses',
-                    url:'/courses'
+                    url:'/dashboard'
                  },
                  {
                     name:'Orders',
-                    url:'/orders'
+                    url:'/dashboard/order'
                  },
-                 {
-                     name:'Settings',
-                     url:'/settings'
-                 },
+                
                  {
                      name:'Log-Out',
-                     url:'/logout'
+                     url:'/login'
                  }
             ])
 

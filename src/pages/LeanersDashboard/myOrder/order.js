@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Paragraph } from "../../../components/typography";
+import { Header } from "../../../components/typography";
 import { connect } from "react-redux";
 import DashBoardDetail from "../../../components/DashboardDetail";
 
@@ -44,7 +44,9 @@ const Orders = ({ order_detail, type, orderStatus }) => {
           return "";
         })
       ) : (
-        <Paragraph>No Order</Paragraph>
+        <div style={{textAlign: 'center', margin: '4rem 0'}}>
+        <Header size={24}>Ooops... Your order is empty</Header>
+        </div>
       )}
     </div>
   );

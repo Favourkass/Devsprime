@@ -7,7 +7,7 @@ const MainWrapper = styled.div`
   border-radius: 10px;
   color: black;
   background-color: #ffffff;
-  box-shadow: 0px 12px 35px rgba(160, 121, 0, 0.2);
+  box-shadow: 0px 2px 5px rgba(160, 121, 0, 0.2);
   font-weight: bold;
   line-height: 175.78%;
   font-size: 1em;
