@@ -27,7 +27,7 @@ import ErrorPage from '../../pages/errorPage';
 import DashboardOrder from '../../pages/LeanersDashboard/myOrder';
 
 import UploadCourse from '../../pages/UploadCourse';
-
+import EditCourse from '../../pages/EditCourse';
 
 const App = () => (
   <Suspense fallback={
@@ -38,6 +38,7 @@ const App = () => (
     <Switch>
       <ProtectedRoute exact path='/dashboard/instructor' component={InstructorDashboard} />
       <ProtectedRoute exact path='/dashboard/instructor/upload' component={UploadCourse} />
+      <ProtectedRoute exact path='/courses/:courseID/edit' component={EditCourse} />
       <Route exact path='/review/:cartId' component={ReviewOrder}/>
       <Route exact path='/' component={LandingPage} />
       <Route exact path='/login' component={Login}/>

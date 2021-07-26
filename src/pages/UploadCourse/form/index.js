@@ -225,7 +225,10 @@ function CourseUploadForm(
                   htmlFor="courses"
                   style={{ ...FieldStyle, cursor: "pointer" }}
                 >
-                  Choose Files
+                  Add Video Files
+                  <span style={{ marginLeft: "40px" }}>
+                    {courseVideos.length} files added
+                  </span>
                   <span style={{ marginLeft: "40px" }}>
                     {courseVideos.length} files
                   </span>

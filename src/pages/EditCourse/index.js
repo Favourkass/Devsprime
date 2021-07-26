@@ -1,15 +1,21 @@
 import NavBar from "../../components/navbar/NavBarWraper";
-import CourseUploadForm from "./form/index";
+import CourseEditForm from "./form/index";
 import Footer from "../../components/Footer";
 import { useState, useEffect, useCallback } from "react";
+import { useParams } from "react-router-dom";
 import Hero from "./hero";
 
-const UploadCourse = () => {
+const EditCourse = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [existingVideos, setExistingVideos] = useState([]);
+  const [courseTitle, setCourseTitle] = useState("");
+
+  const { courseID } = useParams();
 
   const { REACT_APP_BASE_URL: BASE_URL } = process.env;
   const token = localStorage.getItem("token");
   const userInformationURL = `${BASE_URL}/user/`;
+  const courseVideosURL = `${BASE_URL}/courses/${courseID}/videos`;
 
   const getUserInformation = useCallback(async () => {
     const response = await fetch(userInformationURL, {
@@ -22,11 +28,27 @@ const UploadCourse = () => {
     return userInformation;
   }, [token, userInformationURL]);
 
+  const getCourseVideos = useCallback(async () => {
+    const response = await fetch(courseVideosURL, {
+      method: "GET",
+      headers: {
+        Authorization: `Token ${token}`,
+      },
+    });
+    const courseVideos = await response.json();
+    return courseVideos;
+  }, [token, courseVideosURL]);
+
   useEffect(() => {
     getUserInformation()
       .then((userInformation) => {
         if (userInformation.data.is_instructor) {
           setIsAuthenticated(true);
+          getCourseVideos().then((courseVideos) => {
+            console.log(courseVideos);
+            setExistingVideos(courseVideos.data.videos);
+            setCourseTitle(courseVideos.data.title);
+          });
         } else {
           window.location.href = "/login";
         }
@@ -34,7 +56,7 @@ const UploadCourse = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [getUserInformation]);
+  }, [getUserInformation, getCourseVideos]);
 
   return (
     <>
@@ -42,7 +64,7 @@ const UploadCourse = () => {
         <>
           <NavBar />
           <Hero />
-          <CourseUploadForm />
+          <CourseEditForm existingVideos={existingVideos} courseID={courseID} courseTitle={courseTitle}/>
           <Footer />
         </>
       )}
@@ -50,4 +72,4 @@ const UploadCourse = () => {
   );
 };
 
-export default UploadCourse;
+export default EditCourse;

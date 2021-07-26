@@ -59,7 +59,7 @@ const InstructorDashboard = (
           <CardContainer>
             {instructorCourses && instructorCourses.length >= 1 ? (
               instructorCourses.map((course, index) => (
-                <Link to="/edit-course" key={index}>
+                <Link to={`/courses/${course.id}/edit`} key={index}>
                   <Courses
                     key={index}
                     tier={course.type_id}
