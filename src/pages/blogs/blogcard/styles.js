@@ -7,27 +7,30 @@ export const BlogCardContainer = styled.div`
 
 export const BlogCardStyle=styled.div`
 color: white;
+max-height: 600px;
 margin-bottom: 5rem;
 .blog-btn{
   margin: 2rem;
 }
-section img{
-  width: 100%;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-}
+
 section{
   margin: auto;
   max-width: 32rem;
   border-radius: 20px;
   background: url(${'https://res.cloudinary.com/devsprime/image/upload/v1624489646/Blogs/blog-bg_wqfkpi.png'}), bottom , linear-gradient(333deg,#FF8A00 1.55%,#FFC000 95.8%); 
 }
+
+.image{
+  max-height: 350px;
+  overflow: hidden;
+}
+
 section h3{
   font-size: calc(var(--width)/10);
   padding: 20px;
 }
 section p{
-  color: rgba(0,0,0,0.67)
+  color: white;
   font-size: calc(var(--width)/20);
   padding-left: 20px;
   padding-right: 20px;
@@ -35,6 +38,12 @@ section p{
 .date{
   font-size: calc(var(--width)/25);
   padding: 20px;
+  padding-top: 0;
+}
+.title{
+  font-size: calc(var(--width)/25);
+  padding: 20px;
+  padding-bottom: 0;
 }
 h1{
   color: #fff;
@@ -77,3 +86,9 @@ margin: 15px 40px 20px 40px;
 }
 `;
 
+export const Img = styled.img`
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+`

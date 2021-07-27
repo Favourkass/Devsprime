@@ -55,4 +55,4 @@ const rootReducer = combineReducers({
   courseVideo: courseVideoReducer,
 });
 
-export default persistReducer(persistConfig, rootReducer);
+export default persistReducer(persistConfig, rootReducer)

@@ -1,4 +1,4 @@
-import { BlogCardStyle, BlogCardContainer } from "./styles";
+import { BlogCardStyle, BlogCardContainer, Img } from "./styles";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ReactPaginate from "react-paginate";
@@ -25,15 +25,19 @@ const BlogCard = () => {
         return (
           <BlogCardStyle key={blog.id}>
             <section>
-              <img src={blog.cover_img} alt="blog img" />
-              <Header className="date">{blog.title}</Header>
-              <p className="date">{dateConverter(blog.created_at)} - by <span>{blog.fullname}</span></p>
-              <Paragraph>{blog.short_desc===""?blog.detail.slice(0,100)+"...": blog.short_desc}</Paragraph>
-              <Link to={`/blogs/${blog.id}`}>
-                <Button small className="blog-btn">
-                  Read More
-                </Button>
-              </Link>
+              <div className="image">
+                <Img src={blog.cover_img} alt="blog img" />
+              </div>
+              <div className="text">
+                <Header className="title">{blog.title}</Header>
+                <p className="date">{dateConverter(blog.created_at)} - by <span>{blog.fullname}</span></p>
+                <Paragraph>{blog.short_desc===""?blog.detail.slice(0,100)+"...": blog.short_desc}</Paragraph>
+                <Link to={`/blogs/${blog.id}`}>
+                  <Button small className="blog-btn">
+                    Read More
+                  </Button>
+                </Link>
+              </div>
             </section>
           </BlogCardStyle>
         );

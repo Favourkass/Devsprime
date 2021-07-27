@@ -89,7 +89,7 @@ const Login = ({ loginData, login, fetchUser, currentUser, history }) => {
                     </CompressInputField>
 
                     <ErrorPosition>
-                      {errors.email ? errors.email : null}
+                      { touched.email && errors.email ?(errors.email):null }
                     </ErrorPosition>
 
                     <CompressInputField>
@@ -104,7 +104,7 @@ const Login = ({ loginData, login, fetchUser, currentUser, history }) => {
                       />
                     </CompressInputField>
                     <ErrorPosition>
-                      {errors.password ? errors.password : null}
+                      { touched.password && errors.password ?(errors.password):null }
                     </ErrorPosition>
 
                     <TextField className="flex-end">

@@ -35,7 +35,7 @@ p{
 }
 p{
   font-size: 16px;
-}
+}}
 @media only screen and (max-width: 800px) {
     margin-left: 50px;
     h3{
@@ -43,7 +43,7 @@ p{
   background: -webkit-linear-gradient(#FFC000, #FF8A00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
+  }
 p{
   font-size: 16px;
 }

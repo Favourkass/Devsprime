@@ -27,7 +27,10 @@ import ErrorPage from '../../pages/errorPage';
 import DashboardOrder from '../../pages/LeanersDashboard/myOrder';
 
 import UploadCourse from '../../pages/UploadCourse';
+
+import AddBlog from '../../pages/addBlog';
 import EditCourse from '../../pages/EditCourse';
+
 
 const App = () => (
   <Suspense fallback={
@@ -47,6 +50,7 @@ const App = () => (
         
       <Route exact path='/signup' component={SignUp} />
       <Route exact path='/blogs' component={BlogList} />
+      <Route exact path='/blogs/createblog' component={AddBlog}/>
       <Route exact path='/blogs/:blogId' component={BlogDetail} />
       <Route exact path='/courses/:course_id' component={CourseOverview} />
         

@@ -8,7 +8,7 @@ import React, { useEffect} from "react";
 import { useDispatch} from "react-redux";
 import { setBlog } from "../../redux/actions/blogActions/blogAction";
 
-const BlogList = () => {
+const BlogList = ({history}) => {
   const dispatch = useDispatch();
   const fetchBlogs = async () => {
         await request
@@ -29,7 +29,7 @@ const BlogList = () => {
   return (
     <>
       <NavBar />
-      <Hero  />
+      <Hero  path={history.location.pathname}/>
       <BlogCard  />
       <Footer />
     </>
