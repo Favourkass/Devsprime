@@ -30,6 +30,7 @@ const FormDiv = ({ signup, signupData }) => {
     }
   };
   let [loading, setLoading] = useState(false);
+  let [btnLable, setBtnLabel] = useState("Become An Instructor")
   useEffect(() => {}, [signupData]);
 
   return (
@@ -45,8 +46,10 @@ const FormDiv = ({ signup, signupData }) => {
           validationSchema={validate}
           onSubmit={async (values) => {
             setLoading(true);
+            setBtnLabel("")
             await signup(values);
             setLoading(false);
+            setBtnLabel("Become An Instructor")
           }}
         >
           {({ values, errors, handleChange, handleBlur, handleSubmit }) => (
@@ -87,7 +90,7 @@ const FormDiv = ({ signup, signupData }) => {
               </SmallText>
               <Button type="submit" primary large width="100%">
                 {" "}
-                Become An Instructor
+                {btnLable}
                 <ClipLoader loading={loading} size={20} />
               </Button>
             </Forms>

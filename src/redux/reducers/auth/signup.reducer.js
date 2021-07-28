@@ -17,7 +17,6 @@ const SignupReducer = (state = initialState, action) => {
             }
 
         case types.SIGNUP_FAILED:
-            console.log(payload)
             return {
                 ...state,
                 errors: payload.errors,
@@ -26,7 +25,6 @@ const SignupReducer = (state = initialState, action) => {
                 loading: false,
             }
         case types.SIGNUP_SUCCESS:
-            console.log(payload)
             return {
                 ...state,
                 data: payload.data.data,

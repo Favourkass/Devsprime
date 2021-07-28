@@ -17,9 +17,12 @@ import MyInput from "./input";
 
 const FormDiv = ({ signup, signupData }) => {
   const getSignUpData = (signupData, loading) => {
-      
     if (loading && signupData.message === "success") {
-      toast.success("Sign up successful, Check your email to verify your account");
+      var check = document.getElementById("check");
+      if (check) {
+        check.style.display = "";
+      }
+      toast.success("Sign up successful");
       return;
     } else if (loading && signupData.message === "failure") {
       const err = Object.values(signupData.errors)[0];
@@ -32,6 +35,8 @@ const FormDiv = ({ signup, signupData }) => {
   let [loading, setLoading] = useState(false);
   useEffect(() => {}, [signupData]);
 
+  const BtnLabel = loading === false ? "Sign Up" : "";
+
   return (
     <div>
       <div className="cont">
@@ -41,6 +46,7 @@ const FormDiv = ({ signup, signupData }) => {
             email: "",
             mobile_number: "",
             password: "",
+            message: "",
           }}
           validationSchema={validate}
           onSubmit={async (values) => {
@@ -51,7 +57,7 @@ const FormDiv = ({ signup, signupData }) => {
         >
           {({ values, errors, handleChange, handleBlur, handleSubmit }) => (
             <Forms onSubmit={handleSubmit}>
-              <ToastContainer style={{ zIndex: "10" }} position="bottom-right" />
+              <ToastContainer style={{ zIndex: "10" }} position="bottom-left" />
               <MyInput
                 type="text"
                 onChange={handleChange}
@@ -87,7 +93,7 @@ const FormDiv = ({ signup, signupData }) => {
               </SmallText>
               <Button type="submit" primary large width="100%">
                 {" "}
-                Sign Up
+                {BtnLabel}
                 <ClipLoader loading={loading} size={20} />
               </Button>
             </Forms>

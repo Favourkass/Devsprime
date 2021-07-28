@@ -53,8 +53,9 @@ const YellowBack = styled.div`
 
 const TextWrapper = styled.div`
   color: #fff;
-  width: 70%;
+  padding:50px;
   text-align: center;
+  background: linear-gradient(0deg, rgba(0,0,0,0.8729692560617998) 0%, rgba(0,0,0,0) 100%);
 `;
 const FormStyle = styled.div`
   background: #fff7df;
